@@ -1,0 +1,13 @@
+#!/bin/bash
+
+options='-columns 3 -width 70 -lines 15 -bw 2 -yoffset -2 -location 1'
+
+selected=$(cat $HOME/dotFiles/shell/scripts/fa5-icon-list.txt | rofi -p "Select icon:" -theme flat-orange -dmenu -i -markup-rows ${options})
+
+# exit if nothing is selected
+[[ -z $selected ]] && exit
+
+echo -ne $(echo "$selected" |\
+  awk -F';' -v RS='>' '
+    NR==2{sub("&#x","",$1);print "\\u" $1;exit}'
+) |  xclip -selection clipboard

@@ -1,0 +1,12 @@
+cd $HOME/workspace/www/vendor
+svn up --username "C1911" --password "Konvict9092"
+notify-send "Shopclues vendor updated"
+cd $HOME/workspace/www/vmart/vendor
+svn up --username "C1911" --password "Konvict9092"
+notify-send "VMart vendor updated"
+cd $HOME/workspace/www/vmart/admin
+svn up --username "C1911" --password "Konvict9092"
+notify-send "VMart admin updated"
+cd $HOME/workspace/www/vmart/sparrow
+svn up --username "C1911" --password "Konvict9092"
+notify-send "Sparrow updated"

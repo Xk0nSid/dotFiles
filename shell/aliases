@@ -1,0 +1,21 @@
+alias up="cd .."
+alias md="mkdir"
+alias rd="rm -r"
+
+alias ls="exa"
+alias lag="exa -limba --git"
+alias la="exa -limba"
+alias ll="exa -limb"
+alias lt="ll -T"
+
+alias localdb="mycli -h 192.168.20.171 -u dev -p CluesDev shopclue_cart"
+
+alias webroot="cd $HOME/workspace/www"
+
+alias cat="bat --show-all"
+
+# Use neovim instead of vim
+alias vim="nvim"
+
+alias edxlist="edx-dl -u siddharth_yadav@outlook.com --list-courses"
+alias edxdld="edx-dl -u siddharth_yadav@outlook.com"
