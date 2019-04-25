@@ -12,7 +12,7 @@ alias localdb="mycli -h 192.168.20.171 -u dev -p CluesDev shopclue_cart"
 
 alias webroot="cd $HOME/workspace/www"
 
-alias cat="bat --show-all"
+alias cat="bat --theme OneHalfDark --show-all"
 
 # Use neovim instead of vim
 alias vim="nvim"
