@@ -12,6 +12,16 @@ Included Configs
 * Tmux
 * ZSH
 
+### Requirements
+
+You will need following fonts for the configs to work properly
+
+* Fira Code Medium
+* RobotoMono Nerd Font Mono
+* Font Awesome 5 Free
+* Font Awesome 5 Brands
+* Weather Icons
+
 
 ### Installation
 
