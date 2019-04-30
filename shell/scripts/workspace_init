@@ -13,9 +13,6 @@ workspace_init_select() {
     "browse")
         i3-nagbar -t warning -m "Initiating browsing workspace sequence. Continue?" -b "Yes" 'i3-msg "workspace 4; exec firefox-developer-edition"'
         ;;
-    *)
-        echo "Nothing selected"
-        ;;
     esac
 }
 

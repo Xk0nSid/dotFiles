@@ -29,6 +29,7 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec alacritty
+bindsym $mod+Shift+Return exec alacritty -t "floatterm"
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -207,6 +208,7 @@ assign [class="Google-chrome"] $ws1
 assign [class="Mailspring"] $ws7
 
 # Open specific applications in floating mode
+for_window [title="floatterm"] floating enable border pixel 1; exec setup_floatterm
 for_window [title="alsamixer"] floating enable border pixel 1
 for_window [class="calamares"] floating enable border normal
 for_window [class="Clipgrab"] floating enable
