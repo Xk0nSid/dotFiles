@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+sequences="shopclues\ncode\nbrowse"
+
+workspace_init_select() {
+    case "$1" in
+    "shopclues")
+        i3-nagbar -t warning -m "Initiating shopclues workspace sequence. Continue?" -b "Yes" 'i3-msg "workspace 3; exec alacritty -e tmux; exec google-chrome-stable; exec skypeforlinux; exec mailspring"'
+        ;;
+    "code")
+        echo "Execute coding sequence"
+        ;;
+    "browse")
+        i3-nagbar -t warning -m "Initiating browsing workspace sequence. Continue?" -b "Yes" 'i3-msg "workspace 4; exec firefox-developer-edition"'
+        ;;
+    *)
+        echo "Nothing selected"
+        ;;
+    esac
+}
+
+case "$1" in
+"options")
+    echo -e $sequences
+    ;;
+"select")
+    option=$(echo -e $sequences | rofi -theme flat-orange -dmenu -p "Init Workspace Sequence")
+    workspace_init_select $option
+    ;;
+*)
+    echo "No options provided"
+    ;;
+esac
+

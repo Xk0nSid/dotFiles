@@ -146,7 +146,10 @@ bindsym $mod+n workspace next
 bindsym $mod+p workspace prev
 
 # Get list of icons
-bindsym $mod+i exec "/home/xk0nsid/dotFiles/shell/scripts/icon_list"
+bindsym $mod+i exec "exec icon_list"
+
+# Initiate workspace sequences
+bindsym $mod+Shift+i "exec workspace_init select"
 
 # Workspace names
 # to display names or symbols instead of plain workspace numbers you can use
@@ -201,6 +204,7 @@ bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
 # assign [class="Pcmanfm"] $ws3
 assign [class="Skype"] $ws6
 assign [class="Google-chrome"] $ws1
+assign [class="Mailspring"] $ws7
 
 # Open specific applications in floating mode
 for_window [title="alsamixer"] floating enable border pixel 1
