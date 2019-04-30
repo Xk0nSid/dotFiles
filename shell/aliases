@@ -14,6 +14,8 @@ alias webroot="cd $HOME/workspace/www"
 
 alias cat="bat --theme OneHalfDark --show-all"
 
+alias config="git --git-dir=$HOME/dotFiles/.git --work-tree=$HOME/dotFiles"
+
 # Use neovim instead of vim
 alias vim="nvim"
 
