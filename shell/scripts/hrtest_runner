@@ -1,0 +1,136 @@
+#!/usr/bin/env python3
+"""Hacker Rank Test Runner script
+
+This script runs test for hacker rank base test format.
+
+This should be the directory structure:
+./project_directory
+    input/
+        input00.txt
+        input01.txt
+        input10.txt
+        input11.txt
+    output/
+        output00.txt
+        output01.txt
+        output10.txt
+        output11.txt
+
+Usage:
+
+hrtest_runner CMD
+    CMD is the program that you wanna run tests against
+
+For example:
+    hrtest_runner "python3 sorting.py"
+    or in case of a compiled language like c, c++, go, rust etc
+    hrtest_runner "./sorting"
+"""
+
+
+import os
+import re
+import sys
+from colorama import Fore, Style, Back
+from subprocess import Popen, PIPE, STDOUT
+
+
+def _color(string, color):
+    return color + string + Style.RESET_ALL
+
+
+def io_dirs_exists():
+    if os.path.isdir('./input'):
+        if os.path.isdir('./output'):
+            return True
+        else:
+            return False
+    else:
+        return False
+
+
+def validate_dirs():
+    if not io_dirs_exists():
+        print(_color("input or output directories not found", Fore.RED))
+        sys.exit(1)
+
+
+def get_files(path):
+    files = []
+    for r, d, f in os.walk(path):
+        for file in f:
+            if '.txt' in file:
+                files.append(os.path.join(r, file))
+    files.sort()
+    return files
+
+
+def prepare_tests():
+    validate_dirs()
+
+    input_dir = './input'
+    output_dir = './output'
+
+    input_files = get_files(input_dir)
+    output_files = get_files(output_dir)
+
+    if len(input_files) != len(output_files):
+        print(_color("Input/Output files don't match", Fore.RED))
+        sys.exit(1)
+
+    return [(x, y) for x, y in zip(input_files, output_files)]
+
+
+def extract_test(filepath, mode='input'):
+    regex = re.compile(r'.*' + mode + '(\d+).txt')
+    result = regex.match(filepath)
+    return result.groups()[0]
+
+
+def run_test(case):
+    if extract_test(case[0]) != extract_test(case[1], 'output'):
+        print(_color("Input Ouput test index mismatch", Fore.RED))
+        sys.exit(1)
+
+    with open(case[0], 'r') as f:
+        test = f.read()
+        expected_output = open(case[1], 'r').read().strip()
+        p = Popen(sys.argv[1].split(), stdout=PIPE, stdin=PIPE, stderr=STDOUT) 
+        cmd_output = p.communicate(input=test.encode('utf-8'))[0].decode().strip()
+        test_name = "Test " + extract_test(case[0])
+        sys.stdout.write(test_name + " -> ")
+        if cmd_output == expected_output:
+            sys.stdout.write(_color("success\n", Fore.WHITE + Back.GREEN))
+            sys.stdout.flush()
+        else:
+            sys.stdout.write(_color("failed\n", Fore.WHITE + Back.RED))
+            sys.stdout.flush()
+            print("\n")
+            print(_color("Command Output:", Fore.YELLOW))
+            print(cmd_output)
+            print("\n")
+            print(_color("Expected Output:", Fore.CYAN))
+            print(expected_output)
+            print("\n")
+
+
+def run_tests():
+    if len(sys.argv) < 2:
+        print(_color("Need command argument", Fore.RED))
+        sys.exit(1)
+
+    if sys.argv[1] == "--help" or sys.argv[1] == "-h":
+        print(__doc__)
+        sys.exit(0)
+
+    tests = prepare_tests()
+    for case in tests:
+        run_test(case)
+
+
+def main():
+    run_tests()
+
+
+if __name__ == "__main__":
+    main()

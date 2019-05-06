@@ -28,8 +28,8 @@ font xft:RobotoMono Nerd Font 9
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec alacritty
-bindsym $mod+Shift+Return exec alacritty -t "floatterm"
+bindsym $mod+Return exec kitty
+bindsym $mod+Shift+Return exec kitty -T "floatterm"
 
 # kill focused window
 bindsym $mod+Shift+q kill

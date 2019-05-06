@@ -21,3 +21,5 @@ alias vim="nvim"
 
 alias edxlist="edx-dl -u siddharth_yadav@outlook.com --list-courses"
 alias edxdld="edx-dl -u siddharth_yadav@outlook.com"
+
+alias gs="git status"

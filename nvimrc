@@ -198,6 +198,14 @@ nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 " }}}
 " ============ Plugins ================== {{{
 
+" Merlin for OCaml
+let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
+execute "set rtp+=" . g:opamshare . "/merlin/vim"
+
+" OCP Indent
+" Indentation for OCaml
+set rtp^="/home/xk0nsid/.opam/default/share/ocp-indent/vim"
+
 let g:airline#extensions#tabline#enabled=2
 let g:airline#extensions#tabline#fnamemod=':t'
 let g:airline#extensions#tabline#left_sep=' '

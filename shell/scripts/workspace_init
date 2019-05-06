@@ -5,7 +5,7 @@ sequences="shopclues\ncode\nbrowse"
 workspace_init_select() {
     case "$1" in
     "shopclues")
-        i3-nagbar -t warning -m "Initiating shopclues workspace sequence. Continue?" -b "Yes" 'i3-msg "workspace 3; exec alacritty -e tmux; exec google-chrome-stable; exec skypeforlinux; exec mailspring"'
+        i3-nagbar -t warning -m "Initiating shopclues workspace sequence. Continue?" -b "Yes" 'i3-msg "workspace 3; exec kitty tmux; exec google-chrome-stable "http://jira.shopclues.com/secure/Dashboard.jspa"; exec skypeforlinux; exec mailspring"'
         ;;
     "code")
         echo "Execute coding sequence"
