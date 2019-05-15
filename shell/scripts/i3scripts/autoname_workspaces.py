@@ -67,6 +67,7 @@ WINDOW_ICONS = {
     'file-roller': fa.icons['compress'],
     'firefox': fa.icons['firefox'],
     'firefox-esr': fa.icons['firefox'],
+    'Firefox Developer Edition': fa.icons['firefox'],
     'gimp-2.8': fa.icons['image'],
     'gnome-control-center': fa.icons['toggle-on'],
     'gnome-terminal-server': fa.icons['terminal'],
