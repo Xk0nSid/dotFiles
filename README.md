@@ -62,3 +62,5 @@ $ ln -s $HOME/dotFiles/tmux.conf $HOME/.tmux.conf
 ```sh
 $ ln -s $HOME/dotFiles/zshrc $HOME/.zshrc
 ```
+
+> Note: `i3scripts` files are provided by [justbuchanan](https://github.com/justbuchanan)

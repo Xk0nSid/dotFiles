@@ -1,0 +1,52 @@
+#!/usr/bin/env python3
+
+import sys
+import json
+from subprocess import Popen, PIPE
+
+
+def get_icon(w_class):
+    w_class = w_class.lower()
+    if "kitty" in w_class:
+        return ""
+    elif "skype" in w_class:
+        return ""
+    elif "pcmanfm" in w_class:
+        return ""
+    elif "google" in w_class and "chrome" in w_class:
+        return ""
+    elif "firefox" in w_class:
+        return ""
+    else:
+        return ""
+
+
+def get_w_class():
+    p = Popen('i3get -r c'.split(), stdin=PIPE, stdout=PIPE, stderr=PIPE)
+    output, err = p.communicate()
+    if p.returncode != 0:
+        return ""
+    return output.decode()
+
+
+def main():
+    # Get state of current workspaces
+    p = Popen('i3-msg -t get_workspaces'.split(), stdin=PIPE, stdout=PIPE, stderr=PIPE)
+    output, err = p.communicate()
+    if p.returncode != 0:
+        print("Failed to state of workspaces")
+        sys.exit(-1)
+
+    output = json.loads(output.decode())
+
+    w_class = get_w_class()
+    if not w_class:
+        w_class = "w_class"
+
+    for ws in output:
+        if ws['focused']:
+            print("{} : {} ({})".format(get_icon(w_class), ws['name'], len(output)))
+
+
+if __name__ == "__main__":
+    main()

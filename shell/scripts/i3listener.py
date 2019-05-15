@@ -14,7 +14,19 @@ def window_notify(i3, event):
         call("polybar-msg hook titlehook 1".split(" "))
 
 
+def window_ws_notify(i3, event):
+    if event.change in ["title", "focus"]:
+        call('polybar-msg hook wshook 1'.split())
+
+
+def ws_notify(i3, event):
+    if event.change == "focus":
+        if event.old.num != -1:
+            call('polybar-msg hook wshook 1'.split())
+
+
 if __name__ == "__main__":
     i3 = Connection()
-    i3.on('window', window_notify)
+    i3.on('window', window_ws_notify)
+    i3.on('workspace', window_ws_notify)
     i3.main()

@@ -7,13 +7,10 @@ Plug 'nsf/gocode'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'w0rp/ale'
 Plug 'Raimondi/delimitMate'
-Plug 'kassio/neoterm'
 Plug '/home/shopclues/.fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'wsdjeg/FlyGrep.vim'
-Plug 'scrooloose/nerdtree'
 Plug 'airblade/vim-gitgutter'
-Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-surround'
 Plug 'majutsushi/tagbar'
 Plug 'godlygeek/tabular'
@@ -96,6 +93,7 @@ set fileencoding=utf-8                                                        "S
 set inccommand=nosplit                                                      "Show substitute changes immidiately in separate split
 set fillchars+=vert:\│                                                      "Make vertical split separator full line
 set pumheight=15                                                           "Maximum number of entries in autocomplete popup
+set visualbell
 
 " }}}
 " ================ Turn Off Swap Files ============== {{{
@@ -198,6 +196,25 @@ nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 " }}}
 " ============ Plugins ================== {{{
 
+" Golang
+
+au FileType go set noexpandtab
+au FileType go set shiftwidth=4
+au FileType go set softtabstop=4
+au FileType go set tabstop=4
+
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_types = 1
+let g:go_auto_sameids = 1
+let g:go_fmt_command = "goimports"
+let g:go_auto_type_info = 1
+
 " Merlin for OCaml
 let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
 execute "set rtp+=" . g:opamshare . "/merlin/vim"
@@ -238,6 +255,7 @@ call deoplete#custom#option('sources', {
 let g:LanguageClient_serverCommands = {
     \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
     \ 'python': ['/usr/bin/pyls'],
+    \ 'go': ['~/workspace/go/bin/go-langserver']
     \ }
 
 let g:LanguageClient_autoStart = 1
@@ -273,7 +291,10 @@ let g:LanguageClient_diagnosticsDisplay = {
     \     },
     \ }
 
-" let g:ale_sign_error='>>'
-" let g:ale_sign_warning='--'
+" Error and warning signs.
+let g:ale_sign_error = '⤫'
+let g:ale_sign_warning = '⚠'
+" Enable integration with airline.
+let g:airline#extensions#ale#enabled = 1
 
 " }}}

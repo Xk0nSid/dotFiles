@@ -8,9 +8,10 @@ export PATH="$PATH:$HOME/bin"
 
 export PATH="$HOME/.cargo/bin:$PATH"
 
-export PATH="$PATH:$HOME/go/bin"
-
 export GOPATH=$HOME/workspace/go
+
+export PATH="$PATH:$GOPATH/bin"
+export PATH="$PATH:$HOME/go/bin"
 
 export JIRA_URL="http://jira.shopclues.com"
 
@@ -29,4 +30,5 @@ eval OPAM_SWITCH_PREFIX='/home/xk0nsid/.opam/default'; export OPAM_SWITCH_PREFIX
 CAML_LD_LIBRARY_PATH='/home/xk0nsid/.opam/default/lib/stublibs:Updated by package ocaml'; export CAML_LD_LIBRARY_PATH;
 OCAML_TOPLEVEL_PATH='/home/xk0nsid/.opam/default/lib/toplevel'; export OCAML_TOPLEVEL_PATH;
 MANPATH=':/home/xk0nsid/.opam/default/man'; export MANPATH;
-PATH='/home/xk0nsid/.opam/default/bin:/home/xk0nsid/dotFiles/shell/scripts:/home/xk0nsid/.local/bin:/home/xk0nsid/.npm-global/bin:/home/xk0nsid/.cargo/bin:/home/xk0nsid/dotFiles/shell/scripts:/home/xk0nsid/.local/bin:/home/xk0nsid/.npm-global/bin:/home/xk0nsid/.cargo/bin:/home/xk0nsid/dotFiles/shell/scripts:/home/xk0nsid/.local/bin:/home/xk0nsid/.npm-global/bin:/home/xk0nsid/.cargo/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/xk0nsid/bin:/home/xk0nsid/go/bin:/home/xk0nsid/bin:/home/xk0nsid/go/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/xk0nsid/bin:/home/xk0nsid/go/bin'; export PATH;
+
+export PATH="$PATH:$HOME/.opam/default/bin"

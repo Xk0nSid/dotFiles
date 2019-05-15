@@ -5,8 +5,8 @@ ${prompt_suffix}'
 
 RPROMPT='$(get_right_prompt)'
 
-# local return_status="%(?:%{$fg_bold[green]%}π:%{$fg_bold[red]%}π)%{$reset_color%}"
-local return_status="%(?:%{$fg_bold[green]%}λ:%{$fg_bold[red]%}π)%{$reset_color%}"
+# local return_status="%(?:%{$fg_bold[green]%}λ:%{$fg_bold[red]%}λ)%{$reset_color%}"
+local return_status="%(?:%{$fg_bold[green]%}λ:%{$fg_bold[red]%}λ)%{$reset_color%}"
 
 local prompt_suffix="%{$fg[magenta]%}❯%{$reset_color%} "
 

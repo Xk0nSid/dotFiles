@@ -1,0 +1,17 @@
+#!/usr/bin/env python3
+
+
+from i3splat import *
+
+mydir = "~/workspace/gorprojects/teen_patti"
+ws = Workspace("code", [
+    (0.5, chrome(["stackoverflow.com"])),
+    (0.5, Container(SPLITV, [
+        (0.7, Container(TABBED, [
+            (0.5, kitty(wdir=mydir, command="vim main.go")),
+            (0.5, vscode([mydir])),
+        ])),
+        (0.3, kitty(wdir=mydir)),
+    ])
+)])
+ws.launch()

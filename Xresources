@@ -20,6 +20,7 @@ rofi.color-urgent: argb:ffffffff , #ff372c , argb:ffffffff , #ff372c , #1b2b34
 rofi.color-active: argb:ffffffff , #6699cc , argb:ffffffff , #6699cc , #1b2b34
 rofi.color-window: argb:ffffffff
 
+
 *background:                      #222D31
 *foreground:                      #d8d8d8
 *fading:                          8
@@ -63,21 +64,39 @@ rofi.color-window: argb:ffffffff
 Xcursor.theme: xcursor-breeze
 Xcursor.size:                     0
 
-URxvt.font:                       9x15,xft:TerminessTTFNerdFontMono
+! URxvt.font:                       9x15,xft:Fira Code Medium
 
 ! alternative font settings with 'terminus':
 ! URxvt.font:      -xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1
 ! URxvt.bold.font: -xos4-terminus-bold-r-normal--16-160-72-72-c-80-iso10646-1
 !! terminus names see end of file!
 
-URxvt.depth:                      32
-URxvt.background:                 [100]#222D31
-URxvt*scrollBar:                  false
-URxvt*mouseWheelScrollPage:       false
-URxvt*cursorBlink:                true
-URxvt*background:                 black
-URxvt*foreground:                 grey
-URxvt*saveLines:                  5000
+!! URxvt Appearance
+URxvt.font: xft:Fira Code:style=Regular:size=9
+URxvt.boldFont: xft:Fira Code:style=Bold:size=9
+URxvt.italicFont: xft:Fira Code:style=Italic:size=9
+URxvt.boldItalicFont: xft:Fira Code:style=Bold Italic:size=9
+URxvt.letterSpace: 0
+URxvt.lineSpace: 0
+URxvt.geometry: 92x24
+URxvt.internalBorder: 24
+URxvt.cursorBlink: true
+URxvt.cursorUnderline: false
+URxvt.saveline: 2048
+URxvt.scrollBar: false
+URxvt.scrollBar_right: false
+URxvt.urgentOnBell: true
+URxvt.depth: 24
+URxvt.iso14755: false
+
+!URxvt.depth:                      32
+!URxvt.background:                 [100]#222D31
+!URxvt*scrollBar:                  false
+!URxvt*mouseWheelScrollPage:       false
+!URxvt*cursorBlink:                true
+!URxvt*background:                 black
+!URxvt*foreground:                 grey
+!URxvt*saveLines:                  5000
 
 ! for 'fake' transparency (without Compton) uncomment the following three lines
 ! URxvt*inheritPixmap:            true
@@ -85,7 +104,7 @@ URxvt*saveLines:                  5000
 ! URxvt*shading:                  138
 
 ! Normal copy-paste keybindings without perls
-URxvt.iso14755:                   false
+!URxvt.iso14755:                   false
 URxvt.keysym.Shift-Control-V:     eval:paste_clipboard
 URxvt.keysym.Shift-Control-C:     eval:selection_to_clipboard
 !Xterm escape codes, word by word movement
