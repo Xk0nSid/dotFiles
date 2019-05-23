@@ -5,7 +5,7 @@ alias rd="rm -r"
 alias ls="exa"
 alias lag="exa -limba --git"
 alias la="exa -limba"
-alias ll="exa -limb"
+alias ll="exa -limbah"
 alias lt="ll -T"
 
 alias localdb="mycli -h 192.168.20.171 -u dev -p CluesDev shopclue_cart"

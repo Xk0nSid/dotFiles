@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+options="Laptop\nMonitor"
+
+layout_select() {
+    case "$1" in
+    "Laptop")
+        i3-msg "exec --no-startup-id layout_laptop.sh"
+        notify-send "Switched to Laptop screen"
+        ;;
+    "Monitor")
+        i3-msg "exec --no-startup-id layout_monitor.sh"
+        notify-send "Switched to main Monitor"
+        ;;
+    esac
+}
+
+case "$1" in
+"options")
+    echo -e $options
+    ;;
+"select")
+    option=$(echo -e $options | rofi -theme flat-orange -dmenu -p "Select Screen Layout")
+    layout_select $option
+    ;;
+*)
+    echo "No options provided"
+    ;;
+esac
+

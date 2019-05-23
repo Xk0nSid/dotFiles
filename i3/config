@@ -31,8 +31,8 @@ font xft:RobotoMono Nerd Font 9
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec kitty
-bindsym $mod+Shift+Return exec kitty -T "floatterm"
+bindsym $mod+Return exec alacritty
+bindsym $mod+Shift+Return exec alacritty -t "floatterm"
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -133,7 +133,7 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # toggle sticky
-bindsym $mod+Shift+s sticky toggle
+# bindsym $mod+Shift+s sticky toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -154,6 +154,9 @@ bindsym $mod+i exec "exec icon_list"
 
 # Initiate workspace sequences
 bindsym $mod+Shift+i "exec workspace_init select"
+
+# Select screen layout
+bindsym $mod+Shift+s "exec screen_layout select"
 
 # Workspace names
 # to display names or symbols instead of plain workspace numbers you can use
@@ -331,7 +334,7 @@ exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 
 # Intialize script to automatically rename workspace names
-exec_always --no-startup-id autoname_workspaces.py --norenumber_workspaces
+exec_always --no-startup-id i3_autoname_start
 
 # exec --no-startup-id xmodmap /home/xk0nsid/.Xmodmap
 

@@ -1,0 +1,4 @@
+#!/bin/bash
+
+kill $(ps aux | rg autoname | head -1 | cut -d ' ' -f3)
+autoname_workspaces.py --norenumber_workspaces &
