@@ -6,7 +6,9 @@ alias ls="exa"
 alias lag="exa -limba --git"
 alias la="exa -limba"
 alias ll="exa -limbah"
-alias lt="ll -T"
+alias lt="ll -T -I '.git'"
+
+alias grep="rga"
 
 alias localdb="mycli -h 192.168.20.171 -u dev -p CluesDev shopclue_cart"
 
@@ -23,3 +25,5 @@ alias edxlist="edx-dl -u siddharth_yadav@outlook.com --list-courses"
 alias edxdld="edx-dl -u siddharth_yadav@outlook.com"
 
 alias gs="git status"
+
+alias em="emacs -nw"

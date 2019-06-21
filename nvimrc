@@ -15,6 +15,7 @@ Plug 'tpope/vim-surround'
 Plug 'majutsushi/tagbar'
 Plug 'godlygeek/tabular'
 Plug 'ervandew/supertab'
+" Plug 'ehamberg/vim-cute-python'
 Plug 'kizza/KizzaCandyPaper.vim'
 Plug 'chriskempson/base16-vim'
 

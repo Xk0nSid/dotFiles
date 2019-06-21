@@ -24,6 +24,9 @@ function get_right_prompt() {
     # Rust
     prompt="$prompt$(get_cargo_details)"
 
+    # Elixir
+    prompt="$prompt$(get_elixir_details)"
+
     echo -n $prompt
 }
 
@@ -39,6 +42,12 @@ function get_cargo_details() {
     if ls | grep Cargo.toml > /dev/null; then
         rVer=$(cargo version | cut -d ' ' -f2)
         echo -n "[%{$fg[red]%} %{$fg[yellow]%}Rust $rVer%{$reset_color%}]"
+    fi
+}
+
+function get_elixir_details() {
+    if ls | grep mix.exs > /dev/null; then
+        echo -n "[%{$fg[magenta]%} %{$fg[yellow]%}Elixir%{$reset_color%}]"
     fi
 }
 

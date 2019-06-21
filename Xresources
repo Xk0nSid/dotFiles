@@ -20,46 +20,66 @@ rofi.color-urgent: argb:ffffffff , #ff372c , argb:ffffffff , #ff372c , #1b2b34
 rofi.color-active: argb:ffffffff , #6699cc , argb:ffffffff , #6699cc , #1b2b34
 rofi.color-window: argb:ffffffff
 
+*.color0: #1E2127
+*.color8: #5C6370
+*.color1: #CC626A
+*.color9: #E06C75
+*.color2: #98C379
+*.color10: #A7D685
+*.color3:  #da8548
+*.color11: #ECBE7B
+*.color4: #3E86B8
+*.color12: #51afef
+*.color5: #a9a1e1
+*.color13: #C678DD
+*.color6: #4db5bd
+*.color14: #56B6C2
+*.color7: #ABB2BF
+*.color15: #FFFFFF
+*.foreground: #ABB2BF
+*.cursorColor: #5C6370
+*.background: #282c34 
 
-*background:                      #222D31
-*foreground:                      #d8d8d8
-*fading:                          8
-*fadeColor:                       black
-*cursorColor:                     #1ABB9B
-*pointerColorBackground:          #2B2C2B
-*pointerColorForeground:          #16A085
 
-!! black dark/light
-*color0:                          #222D31
-*color8:                          #585858
-
-!! red dark/light
-*color1:                          #ab4642
-*color9:                          #ab4642
-
-!! green dark/light
-*color2:                          #7E807E
-*color10:                         #8D8F8D
-
-!! yellow dark/light
-*color3:                          #f7ca88
-*color11:                         #f7ca88
-
-!! blue dark/light
-*color4:                          #7cafc2
-*color12:                         #7cafc2
-
-!! magenta dark/light
-*color5:                          #ba8baf
-*color13:                         #ba8baf
-
-!! cyan dark/light
-*color6:                          #1ABB9B
-*color14:                         #1ABB9B
-
-!! white dark/light
-*color7:                          #d8d8d8
-*color15:                         #f8f8f8
+!*background:                      #222D31
+!*foreground:                      #d8d8d8
+!*fading:                          8
+!*fadeColor:                       black
+!*cursorColor:                     #1ABB9B
+!*pointerColorBackground:          #2B2C2B
+!*pointerColorForeground:          #16A085
+!
+!!! black dark/light
+!*color0:                          #222D31
+!*color8:                          #585858
+!
+!!! red dark/light
+!*color1:                          #ab4642
+!*color9:                          #ab4642
+!
+!!! green dark/light
+!*color2:                          #7E807E
+!*color10:                         #8D8F8D
+!
+!!! yellow dark/light
+!*color3:                          #f7ca88
+!*color11:                         #f7ca88
+!
+!!! blue dark/light
+!*color4:                          #7cafc2
+!*color12:                         #7cafc2
+!
+!!! magenta dark/light
+!*color5:                          #ba8baf
+!*color13:                         #ba8baf
+!
+!!! cyan dark/light
+!*color6:                          #1ABB9B
+!*color14:                         #1ABB9B
+!
+!!! white dark/light
+!*color7:                          #d8d8d8
+!*color15:                         #f8f8f8
 
 Xcursor.theme: xcursor-breeze
 Xcursor.size:                     0

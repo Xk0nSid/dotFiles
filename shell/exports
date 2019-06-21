@@ -32,3 +32,5 @@ OCAML_TOPLEVEL_PATH='/home/xk0nsid/.opam/default/lib/toplevel'; export OCAML_TOP
 MANPATH=':/home/xk0nsid/.opam/default/man'; export MANPATH;
 
 export PATH="$PATH:$HOME/.opam/default/bin"
+
+export PATH=$PATH:$HOME/.linkerd2/bin

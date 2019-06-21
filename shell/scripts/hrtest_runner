@@ -87,7 +87,7 @@ def extract_test(filepath, mode='input'):
     return result.groups()[0]
 
 
-def run_test(case):
+def run_test(case, argv_ix=1):
     if extract_test(case[0]) != extract_test(case[1], 'output'):
         print(_color("Input Ouput test index mismatch", Fore.RED))
         sys.exit(1)
@@ -95,7 +95,7 @@ def run_test(case):
     with open(case[0], 'r') as f:
         test = f.read()
         expected_output = open(case[1], 'r').read().strip()
-        p = Popen(sys.argv[1].split(), stdout=PIPE, stdin=PIPE, stderr=STDOUT) 
+        p = Popen(sys.argv[argv_ix].split(), stdout=PIPE, stdin=PIPE, stderr=STDOUT) 
         cmd_output = p.communicate(input=test.encode('utf-8'))[0].decode().strip()
         test_name = "Test " + extract_test(case[0])
         sys.stdout.write(test_name + " -> ")
@@ -115,6 +115,8 @@ def run_test(case):
 
 
 def run_tests():
+    argv_ix = 1
+
     if len(sys.argv) < 2:
         print(_color("Need command argument", Fore.RED))
         sys.exit(1)
@@ -125,7 +127,7 @@ def run_tests():
 
     tests = prepare_tests()
     for case in tests:
-        run_test(case)
+        run_test(case, argv_ix)
 
 
 def main():

@@ -11,15 +11,36 @@
 ;==========================================================
 
 [colors]
-;background = ${xrdb:color0:#222}
-background = #222
+background = #282c34
 background-alt = #444
-;foreground = ${xrdb:color7:#222}
-foreground = #dfdfdf
-foreground-alt = #555
-primary = #ffb52a
-secondary = #e60053
+foreground = #abb2bf
+foreground-alt = #55
+primary = #E06C75
+secondary = #98c379
 alert = #bd2c40
+3 = #d19a66
+4 = #61aeee
+5 = #c678dd
+6 = #56b6c2
+7 = #abb2bf
+8 = #5c6370
+9 = #e06c75
+10 = #98c379
+11 = #d19a66
+12 = #62afee
+13 = #c678dd
+14 = #56b6c2
+
+;[colors]
+;;background = ${xrdb:color0:#222}
+;background = #222
+;background-alt = #444
+;;foreground = ${xrdb:color7:#222}
+;foreground = #dfdfdf
+;foreground-alt = #555
+;primary = #ffb52a
+;secondary = #e60053
+;alert = #bd2c40
 
 [bar/top]
 ;monitor = ${env:MONITOR:HDMI-1}
@@ -39,6 +60,7 @@ line-color = #f00
 border-size = 0
 border-color = #00000000
 
+padding-top = 0
 padding-left = 0
 padding-right = 0
 padding-bottom = 2
