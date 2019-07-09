@@ -4,6 +4,10 @@
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
 
+# Multiple Monitors
+set $laptop eDP1
+set $monitor HDMI1
+
 # set default desktop layout (default is tiling)
 # workspace_layout tabbed <stacking|tabbed>
 
@@ -39,7 +43,7 @@ bindsym $mod+Shift+q kill
 
 # start program launcher
 bindsym $mod+Shift+d exec --no-startup-id dmenu_run -fn 'Fira Code Medium-9'
-bindsym $mod+d exec --no-startup-id rofi -show run -theme flat-orange
+bindsym $mod+d exec --no-startup-id "rofi -modi run,drun -show drun -drun-icon-theme 'Papirus-Adapta-Nokto-Maia' -font 'Fira Code Medium 10' -show-icons -theme sidetab"
 
 # launch categorized menu
 # bindsym $mod+z exec --no-startup-id morc_menu
@@ -171,6 +175,16 @@ bindsym $mod+Shift+s "exec screen_layout select"
 #set $ws7 7
 #set $ws8 8
 #set $ws9 9
+
+workspace 1 output $monitor
+workspace 2 output $laptop
+workspace 3 output $monitor
+workspace 4 output $monitor
+workspace 5 output $monitor
+workspace 6 output $monitor
+workspace 7 output $monitor
+workspace 8 output $monitor
+workspace 9 output $monitor
 
 # switch to workspace
 bindsym $mod+1 workspace number 1

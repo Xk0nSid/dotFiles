@@ -12,10 +12,9 @@ Plug 'junegunn/fzf.vim'
 Plug 'wsdjeg/FlyGrep.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-surround'
-Plug 'majutsushi/tagbar'
+" Plug 'majutsushi/tagbar'
 Plug 'godlygeek/tabular'
 Plug 'ervandew/supertab'
-" Plug 'ehamberg/vim-cute-python'
 Plug 'kizza/KizzaCandyPaper.vim'
 Plug 'chriskempson/base16-vim'
 
@@ -142,7 +141,7 @@ set wildignore+=*.png,*.jpg,*.gif"
 syntax on
 set background=dark
 let base16colorspace=256
-colorscheme base16-atelier-dune
+colorscheme KizzaCandyPaper
 hi Normal ctermbg=NONE
 " Remove highlighting of Operator because it is reversed with cursorline
 " enabled
@@ -216,14 +215,7 @@ let g:go_auto_sameids = 1
 let g:go_fmt_command = "goimports"
 let g:go_auto_type_info = 1
 
-" Merlin for OCaml
-let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
-execute "set rtp+=" . g:opamshare . "/merlin/vim"
-
-" OCP Indent
-" Indentation for OCaml
-set rtp^="/home/xk0nsid/.opam/default/share/ocp-indent/vim"
-
+" Airline
 let g:airline#extensions#tabline#enabled=2
 let g:airline#extensions#tabline#fnamemod=':t'
 let g:airline#extensions#tabline#left_sep=' '

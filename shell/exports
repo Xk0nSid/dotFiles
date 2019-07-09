@@ -1,4 +1,4 @@
-export TERM="xterm-256color"
+export TERM="tmux-256color"
 
 export EDITOR="vim"
 
@@ -34,3 +34,5 @@ MANPATH=':/home/xk0nsid/.opam/default/man'; export MANPATH;
 export PATH="$PATH:$HOME/.opam/default/bin"
 
 export PATH=$PATH:$HOME/.linkerd2/bin
+
+export PATH=/home/xk0nsid/.nimble/bin:$PATH

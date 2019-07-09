@@ -33,7 +33,7 @@
        (popup            ; tame sudden yet inevitable temporary windows
         +all             ; catch all popups that start with an asterix
         +defaults)       ; default popup rules
-       pretty-code       ; replace bits of code with pretty symbols
+       ;;pretty-code       ; replace bits of code with pretty symbols
        ;;tabbar            ; FIXME an (incomplete) tab bar for Emacs
        treemacs          ; a project drawer, like neotree but cooler
        unicode           ; extended unicode support for various languages
@@ -118,18 +118,18 @@
        ;;latex             ; writing papers in Emacs has never been so fun
        ;;ledger            ; an accounting system in Emacs
        ;;lua               ; one-based indices? one-based indices
-       markdown          ; writing docs for people to ignore
-       ;;nim               ; python + lisp at the speed of c
+       markdown            ; writing docs for people to ignore
+       ;;(nim +lsp)        ; python + lisp at the speed of c
        ;;nix               ; I hereby declare "nix geht mehr!"
-       ;;ocaml             ; an objective camel
-       (org              ; organize your plain life in plain text
-        +attach          ; custom attachment system
-        +babel           ; running code in org
-        +capture         ; org-capture in and outside of Emacs
-        +export          ; Exporting org to whatever you want
-        +habit           ; Keep track of your habits
-        +present         ; Emacs for presentations
-        +protocol)       ; Support for org-protocol:// links
+       ;; (ocaml +lsp)               ; an objective camel
+       (org                ; organize your plain life in plain text
+        +attach            ; custom attachment system
+        +babel             ; running code in org
+        +capture           ; org-capture in and outside of Emacs
+        +export            ; Exporting org to whatever you want
+        +habit             ; Keep track of your habits
+        +present           ; Emacs for presentations
+        +protocol)         ; Support for org-protocol:// links
        ;;perl              ; write code no one else can comprehend
        ;;php               ; perl's insecure younger brother
        ;;plantuml          ; diagrams for confusing people more
