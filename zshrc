@@ -63,11 +63,9 @@ ZSH_THEME="xks-lambda"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-    cargo
     emoji
     git
     jira
-    vi-mode
     z
 )
 
@@ -89,5 +87,10 @@ fi
 
 # Load functions
 if [ -f $HOME/.functions ]; then
+    . $HOME/.functions
+fi
+
+# Load Completions
+if [ -d $HOME/.functions ]; then
     . $HOME/.functions
 fi

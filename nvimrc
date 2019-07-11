@@ -12,6 +12,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'wsdjeg/FlyGrep.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-surround'
+Plug 'junegunn/vim-easy-align'
 " Plug 'majutsushi/tagbar'
 Plug 'godlygeek/tabular'
 Plug 'ervandew/supertab'
@@ -141,7 +142,7 @@ set wildignore+=*.png,*.jpg,*.gif"
 syntax on
 set background=dark
 let base16colorspace=256
-colorscheme KizzaCandyPaper
+colorscheme base16-classic-dark
 hi Normal ctermbg=NONE
 " Remove highlighting of Operator because it is reversed with cursorline
 " enabled
@@ -192,6 +193,8 @@ nnoremap <Leader>wk :q<CR>
 
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
 " }}}
 " ============ Plugins ================== {{{

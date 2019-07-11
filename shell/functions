@@ -1,1 +1,10 @@
+#!/usr/bin/bash
+
 source $HOME/dotFiles/shell/shopclues_fn.sh
+source $HOME/dotFiles/shell/completions/workon
+
+function workon() {
+    dir=$1
+    . "$HOME/workspace/python/$dir/venv/bin/activate"
+    cd "$HOME/workspace/python/$dir" || return
+}

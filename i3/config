@@ -35,14 +35,15 @@ font xft:RobotoMono Nerd Font 9
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec alacritty
-bindsym $mod+Shift+Return exec alacritty -t "floatterm"
+bindsym $mod+Return exec kitty
+bindsym $mod+Shift+Return exec kitty -T "floatterm"
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # start program launcher
-bindsym $mod+Shift+d exec --no-startup-id dmenu_run -fn 'Fira Code Medium-9'
+# bindsym $mod+Shift+d exec --no-startup-id dmenu_run -fn 'Fira Code Medium-9'
+bindsym $mod+Shift+d exec --no-startup-id "rofi -combi run,drun -show combi -drun-icon-theme 'Papirus-Adapta-Nokto-Maia' -font 'Fira Code Medium 10' -show-icons "
 bindsym $mod+d exec --no-startup-id "rofi -modi run,drun -show drun -drun-icon-theme 'Papirus-Adapta-Nokto-Maia' -font 'Fira Code Medium 10' -show-icons -theme sidetab"
 
 # launch categorized menu

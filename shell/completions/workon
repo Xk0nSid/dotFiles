@@ -1,0 +1,7 @@
+function _workon() {
+    local -a pydirs
+    pydirs=(`ls $HOME/workspace/python | tr '\n' ' '`)
+    _describe 'workon' pydirs
+}
+
+compdef _workon workon
