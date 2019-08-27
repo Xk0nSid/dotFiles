@@ -174,7 +174,7 @@ vnoremap <Leader>p "0p
 nnoremap <Leader>h viw"0p
 
 " Toggle buffer list
-nnoremap <Leader>ff :Files<CR>
+nnoremap <Leader>ff :GFiles<CR>
 nnoremap <Leader>fb :Buffers<CR>
 
 " Indenting in visual mode

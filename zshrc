@@ -90,7 +90,14 @@ if [ -f $HOME/.functions ]; then
     . $HOME/.functions
 fi
 
-# Load Completions
-if [ -d $HOME/.functions ]; then
-    . $HOME/.functions
+if [ -f $HOME/dotFiles/shell/completions ]; then
+    for f in $(ls $HOME/dotFiles/shell/completions);
+    do
+        . $f
+    done
 fi
+
+# Completions
+
+fpath+=~/.zfunc
+compinit

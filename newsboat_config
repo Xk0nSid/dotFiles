@@ -1,0 +1,64 @@
+# ----------------------------------------------------------------------
+# file: ~/.newsboat/config
+# date: Thursday 04 August 17:07
+# vim:  set ai et fenc=utf-8 ft=conf nu si sts=0 sw=4 ts=8 tw=0 :
+# ----------------------------------------------------------------------
+#
+
+auto-reload yes
+# macro y set browser "mpv %u"; open-in-browser ; set browser "$BROWSER %u"
+cleanup-on-quit yes
+# download-path "/home/cOb4l7/Videos/Podcasts"
+# feed-sort-order title-dec
+max-downloads 4
+notify-always yes
+notify-format "newsboat: %n unread articles within %f unread feeds"
+notify-program notify-send
+notify-xterm yes
+notify-screen yes
+player mpv
+refresh-on-startup yes
+reload-time 20
+reload-threads 2
+show-read-articles no
+show-read-feeds yes
+
+
+# binds ----------------------------------------------------------------
+
+bind-key \ reload-all
+# bind-key "RIGHT" select-tag
+# bind-key "SPACE" open
+bind-key j next
+bind-key k prev
+bind-key J next-feed
+bind-key K prev-feed
+bind-key j down article
+bind-key k up article
+bind-key J next article
+bind-key K prev article
+
+# hide articles matching: ---------------------------------------------
+
+ignore-article "*" "title =~ \"Sponsor\""
+ignore-article "*" "title =~ \"Advertisement\""
+ignore-mode "display"
+
+
+# formatting and colorization ------------------------------------------
+
+color background          color236   default
+color listnormal          color236   default
+color listnormal_unread   color6     default
+color listfocus           color236   color35
+color listfocus_unread    color236    color35
+color info                color248   color236
+color article             color248   default
+
+# highlights
+highlight article "^(Feed|Link):.*$" color6 default bold
+highlight article "^(Title|Date|Author):.*$" color6 default bold
+highlight article "https?://[^ ]+" color35 default underline
+highlight article "\\[[0-9]+\\]" color35 default bold
+highlight article "\\[image\\ [0-9]+\\]" color10 default bold
+highlight feedlist "^─.*$" color6 color236 bold

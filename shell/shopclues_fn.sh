@@ -258,3 +258,7 @@ function prompt_svn_branch {
         echo $(svn info | grep "URL: http" | cut -d "/" -f5)
     fi
 }
+
+function af_diff() {
+    meld atom/$1 fusion/$1
+}

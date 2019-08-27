@@ -36,3 +36,7 @@ export PATH="$PATH:$HOME/.opam/default/bin"
 export PATH=$PATH:$HOME/.linkerd2/bin
 
 export PATH=/home/xk0nsid/.nimble/bin:$PATH
+
+export PATH=$PATH:$HOME/.poetry/bin
+
+export PATH=$PATH:$HOME/.config/rofi/bins

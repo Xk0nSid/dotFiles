@@ -43,10 +43,10 @@ configuration {
 }
 
 window {
-    location:    center;
-    anchor:      center;
-    height:      40%;
-    width:       55%;
+    location:    east;
+    anchor:      east;
+    height:      100%;
+    width:       40%;
     orientation: horizontal;
     children:    [mainbox];
 }
