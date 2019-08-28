@@ -1,0 +1,22 @@
+[colors]
+background = #282c34
+background_dark = #444
+foreground = #abb2bf
+foreground_dark = #55
+primary = #E06C75
+secondary = #98c379
+alert = #bd2c40
+3 = #d19a66
+4 = #61aeee
+5 = #c678dd
+6 = #56b6c2
+7 = #abb2bf
+8 = #5c6370
+9 = #e06c75
+10 = #98c379
+11 = #d19a66
+12 = #62afee
+13 = #c678dd
+14 = #56b6c2
+
+; vim:ft=dosini

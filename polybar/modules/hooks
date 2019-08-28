@@ -1,0 +1,23 @@
+[module/wshook]
+type = custom/ipc
+hook-0 = i3pbws
+initial = 1
+
+format-background = ${colors.background_dark}
+format-underline = ${colors.accent}
+format-padding = 2
+
+click-right = i3-msg workspace next
+click-left = i3-msg workspace prev
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:40:...%
+
+[module/titlehook]
+type = custom/ipc
+hook-0 = /home/xk0nsid/dotFiles/shell/scripts/displaytitle
+initial = 1
+# click-left = polybar-msg hook titlehook 2
+
+; vim:ft=dosini

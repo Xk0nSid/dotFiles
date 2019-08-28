@@ -46,6 +46,7 @@ bindsym $mod+Shift+q kill
 # bindsym $mod+d exec --no-startup-id "rofi -modi run,drun -show drun -drun-icon-theme 'Papirus-Adapta-Nokto-Maia' -font 'Fira Code Medium 10' -show-icons -theme sidetab"
 bindsym $mod+d exec --no-startup-id appsmenu
 bindsym $mod+Shift+d exec --no-startup-id "rofi -combi run,drun -show combi -drun-icon-theme 'Papirus-Adapta-Nokto-Maia' -font 'Fira Code Medium 10' -show-icons "
+bindsym $mod+Shift+n exec --no-startup-id networkmenu
 
 # launch categorized menu
 # bindsym $mod+z exec --no-startup-id morc_menu
@@ -76,11 +77,9 @@ bindsym $mod+Shift+f exec pcmanfm
 # bindsym $mod+t exec --no-startup-id pkill compton
 # bindsym $mod+Ctrl+t exec --no-startup-id compton -b
 # bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
-bindsym Print exec --no-startup-id i3-scrot
-bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
-bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
-# bindsym $mod+Shift+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
-# bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
+bindsym $mod+Print exec --no-startup-id scrotmenu
+# bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
+# bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
 
 # focus_follows_mouse no
 

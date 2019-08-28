@@ -1,0 +1,14 @@
+[colors]
+background       = #333333
+background_dark  = #1a1c1d
+background_light = #4d4d4d
+foreground       = #e2e2e2
+foreground_dark  = #aaaaaa
+foreground_light = #ffffff
+accent           = #728cbb
+urgent           = #de935f
+debian           = #ce0056
+manjaro          = #34be5b
+transparent      = #00000000
+
+; vim:ft=dosini

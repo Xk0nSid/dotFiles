@@ -1,0 +1,96 @@
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+
+; Only show workspaces on the same output as the bar
+;pin-workspaces = true
+
+label-mode-padding = 2
+label-mode-foreground = #000
+label-mode-background = ${colors.accent}
+
+; focused = Active workspace on focused monitor
+label-focused = %name%
+label-focused-background = ${colors.background_light}
+label-focused-foreground = ${colors.foreground}
+label-focused-underline = ${colors.accent}
+label-focused-padding = 2
+
+; unfocused = Inactive workspace on any monitor
+label-unfocused = %name%
+label-unfocused-padding = 2
+
+; visible = Active workspace on unfocused monitor
+label-visible = %name%
+label-visible-background = ${self.label-focused-background}
+label-visible-underline = ${self.label-focused-underline}
+label-visible-padding = ${self.label-focused-padding}
+
+; urgent = Workspace with urgency hint set
+label-urgent = %name%
+label-urgent-background = ${colors.urgent}
+label-urgent-padding = 2
+
+; Separator in between workspaces
+; label-separator = |
+
+# -- Show today's date and the current day, pops a calendar when clicked on
+[module/date]
+type = internal/date
+# Style
+format = %{A1:gsimplecal &:}%{T2} <label>%{A}
+format-background = ${colors.background}
+format-foreground = ${colors.accent}
+format-padding = 3
+date = %d/%m/%Y %H:%M %{F#728cbb T4}%A
+label = %date%
+label-foreground = ${colors.foreground}
+label-font = 1
+# --
+
+[module/battery]
+type = internal/battery
+# Settings
+full-at = 99
+battery = BAT1
+adapter = ACAD
+# Style
+format-charging = %{T2} <label-charging>
+format-charging-background = ${colors.background}
+format-charging-foreground = ${colors.accent}
+format-charging-padding = 2
+format-discharging = %{T2}<ramp-capacity> <animation-discharging> <label-discharging>
+format-discharging-background = ${colors.background}
+format-discharging-foreground = ${colors.accent}
+format-discharging-padding = 2
+format-full = %{T2}<ramp-capacity> <label-full>
+format-full-background = ${colors.background}
+format-full-foreground = ${colors.accent}
+format-full-padding = 3
+time-format = %{F#728cbb T4}%H:%M
+label-charging = %{T1}%percentage%% %time%
+label-charging-foreground = ${colors.foreground}
+label-discharging = %{T1}%percentage%% %time%
+label-discharging-foreground = ${colors.foreground}
+label-full = %{T1}%percentage%% %{F#728cbb}FULL
+label-full-foreground = ${colors.foreground}
+ramp-capacity-foreground = ${colors.accent}
+ramp-capacity-4 = 
+ramp-capacity-3 = 
+ramp-capacity-2 = 
+ramp-capacity-1 = 
+ramp-capacity-0 = 
+ramp-capacity-0-foreground = ${colors.urgent}
+
+animation-discharging-foreground = ${colors.accent}
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
+animation-discharging-3 = 
+animation-discharging-4 = 
+animation-discharging-framerate = 750
+# --
+
+; vim:ft=dosini

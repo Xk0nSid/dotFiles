@@ -1,3 +1,12 @@
+"
+" ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗
+" ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║
+" ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║
+" ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║
+" ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║
+" ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝
+"
+
 " Plugins {{{1
 
 call plug#begin('~/.config/nvim/plugged')
@@ -12,24 +21,59 @@ Plug 'junegunn/fzf.vim'
 Plug 'wsdjeg/FlyGrep.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-surround'
-Plug 'junegunn/vim-easy-align'
-" Plug 'majutsushi/tagbar'
-Plug 'godlygeek/tabular'
-Plug 'ervandew/supertab'
-Plug 'kizza/KizzaCandyPaper.vim'
-Plug 'chriskempson/base16-vim'
 
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
+" Tags sidebar
+Plug 'majutsushi/tagbar'
+" Ctrl+T -> Toggles the tagbar
+map <C-t> :TagbarToggle<CR>
+
+
+" Display vertical line for indentation levels
+Plug 'Yggdroot/indentLine'
+let g:indentLine_faster = 1
+let g:indentLine_char = '┃'
+let g:indentLine_first_char = '┃'
+let g:indentLine_showFirstIndentLevel = 1
+
+Plug 'joshdick/onedark.vim'
+let g:onedark_terminal_italics = 1
+let g:onedark_termcolors = 256
+
+" Simple status lines
+Plug 'itchyny/lightline.vim'
+let g:lightline = {
+    \ 'colorscheme': 'onedark',
+    \ 'active': {
+    \   'left': [ [ 'mode', 'paste' ],
+    \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+    \ },
+    \ 'component_function': {
+    \   'gitbranch': 'gitbranch#name'
+    \ },
     \ }
 
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" Add nice font icons
+Plug 'ryanoasis/vim-devicons'
 
-" Color Schemes
-Plug 'mkarmona/materialbox'
-Plug 'morhetz/gruvbox'
+" Used to display the active branch in lightline
+Plug 'itchyny/vim-gitbranch'
+
+" System explorer
+Plug 'scrooloose/nerdtree'
+" Ctrl+N -> Map open/close NERDTree to Ctrl+N
+map <C-n> :NERDTreeToggle<CR>
+" Ctrl+Alt+N -> Focus NERDTree window (open it if it's closed)
+map <C-A-n> :NERDTreeFocus<CR>
+" Start NERDTree when no file is specified
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" Start NERDTree when a directory is opened
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) &&
+    \ !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+" Open files with split
+let NERDTreeMapOpenSplit = 'h'
+let NERDTreeMapOpenVSplit = 'v'
 
 
 call plug#end()
@@ -43,7 +87,7 @@ endif
 
 filetype indent plugin on
 
-set shell=/bin/bash
+set shell=/bin/zsh
 let mapleader = "\<Space>"
 
 set t_Co=256
@@ -84,7 +128,6 @@ set pastetoggle=<F2>
 set path+=**                                                           "Allow recursive search
 set conceallevel=2
 set concealcursor=i                                                            "neosnippets conceal marker
-set background=dark                                                         "Set background to dark
 set listchars=tab:\ \ ,trail:·                                             "Set trails for tabs and spaces
 set history=500                                                          "Store lots of :cmdline history
 set mouse=a                                                            "Enable mouse usage
@@ -142,11 +185,25 @@ set wildignore+=*.png,*.jpg,*.gif"
 syntax on
 set background=dark
 let base16colorspace=256
-colorscheme base16-classic-dark
+colorscheme onedark
 hi Normal ctermbg=NONE
 " Remove highlighting of Operator because it is reversed with cursorline
 " enabled
 hi! Operator guifg=NONE guibg=NONE
+
+" Fixes methods' arguments color in the Tagbar
+hi TagbarSignature guifg=#80AAFF
+
+" Disables color-scheme background color
+hi Normal guibg=NONE
+
+" Have italic comments
+hi Comment cterm=italic gui=italic
+
+" Set a syntax for some extenstions
+au BufReadPost *.opml setlocal syntax=xml | setlocal filetype=xml
+au BufReadPost *.rasi setlocal syntax=css | setlocal filetype=css
+au BufReadPost *.vue setlocal syntax=html
 
 set relativenumber
 
@@ -218,22 +275,6 @@ let g:go_auto_sameids = 1
 let g:go_fmt_command = "goimports"
 let g:go_auto_type_info = 1
 
-" Airline
-let g:airline#extensions#tabline#enabled=2
-let g:airline#extensions#tabline#fnamemod=':t'
-let g:airline#extensions#tabline#left_sep=' '
-let g:airline#extensions#tabline#left_alt_sep='|'
-let g:airline#extensions#tabline#right_sep=' '
-let g:airline#extensions#tabline#right_alt_sep='|'
-let g:airline#extensions#ale#enabled=1
-let g:airline#extensions#tabline#enabled=1
-
-let g:airline_left_sep=' '
-let g:airline_left_alt_sep='|'
-let g:airline_right_sep=' '
-let g:airline_right_alt_sep='|'
-let g:airline_theme='base16'
-
 " disable autocomplete by default
 let b:deoplete_disable_auto_complete=1
 let g:deoplete_disable_auto_complete=1
@@ -290,7 +331,20 @@ let g:LanguageClient_diagnosticsDisplay = {
 " Error and warning signs.
 let g:ale_sign_error = '⤫'
 let g:ale_sign_warning = '⚠'
-" Enable integration with airline.
-let g:airline#extensions#ale#enabled = 1
+
+
+" Python
+" Limit lines to 79 characters and toggle the coloring of the 80th column
+au FileType python
+    \ setlocal textwidth=79 |
+    \ setlocal fileformat=unix |
+    \ :call ToggleCC()
+
+" Javascript, HTML, CSS and XML
+" Change the indent width to 2 spaces
+au FileType javascript,html,css,xml
+    \ setlocal tabstop=2 |
+    \ setlocal softtabstop=2 |
+    \ setlocal shiftwidth=2
 
 " }}}

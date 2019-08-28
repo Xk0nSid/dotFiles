@@ -18,6 +18,7 @@ You will need following fonts for the configs to work properly
 
 * Fira Code Medium
 * RobotoMono Nerd Font Mono
+* [Hurmit Font](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Hermit)
 * Font Awesome 5 Free
 * Font Awesome 5 Brands
 * Weather Icons

@@ -10,37 +10,12 @@
 ;
 ;==========================================================
 
-[colors]
-background = #282c34
-background-alt = #444
-foreground = #abb2bf
-foreground-alt = #55
-primary = #E06C75
-secondary = #98c379
-alert = #bd2c40
-3 = #d19a66
-4 = #61aeee
-5 = #c678dd
-6 = #56b6c2
-7 = #abb2bf
-8 = #5c6370
-9 = #e06c75
-10 = #98c379
-11 = #d19a66
-12 = #62afee
-13 = #c678dd
-14 = #56b6c2
-
-;[colors]
-;;background = ${xrdb:color0:#222}
-;background = #222
-;background-alt = #444
-;;foreground = ${xrdb:color7:#222}
-;foreground = #dfdfdf
-;foreground-alt = #555
-;primary = #ffb52a
-;secondary = #e60053
-;alert = #bd2c40
+[section/base]
+; Theme
+include-file = ~/.config/polybar/schemes/colors
+; Modules
+include-file = ~/.config/polybar/modules/hooks
+include-file = ~/.config/polybar/modules/flat
 
 [bar/top]
 ;monitor = ${env:MONITOR:HDMI-1}
@@ -51,8 +26,8 @@ height = 22
 radius = 0.0
 fixed-center = true
 
-background = ${colors.background}
-foreground = ${colors.foreground}
+background = ${colors.background_dark}
+foreground = ${colors.foreground_dark}
 
 line-size = 3
 line-color = #f00
@@ -65,19 +40,19 @@ padding-left = 0
 padding-right = 0
 padding-bottom = 2
 
-module-margin-left = 1
+module-margin-left = 0
 module-margin-right = 0
 
 font-0 = Fira Code Medium:pixelsize=9;1
 font-1 = fixed:pixelsize=9;1
-font-2 = RobotoMono Nerd Font Mono:pixelsize=10;1
-font-3 = Font Awesome 5 Free:style=Solid:pixelsize=10:antialias=false;3
-font-4 = Font Awesome 5 Brands:style=Solid:pixelsize=10:antialias=false;3
+font-2 = RobotoMono Nerd Font Mono:pixelsize=9;1
+font-3 = Font Awesome 5 Free:style=Solid:pixelsize=8:antialias=true;3
+font-4 = Font Awesome 5 Brands:style=Solid:pixelsize=8:antialias=true;3
 font-5 = Weather Icons:size=9;1
 
 modules-left = i3
 modules-center = xwindow
-modules-right = memory cpu battery
+modules-right = network battery
 
 ;tray-position = right
 ;tray-padding = 2
@@ -89,35 +64,26 @@ wm-restack = i3
 ;override-redirect = true
 enable-ipc = true
 
-;scroll-up = bspwm-desknext
-;scroll-down = bspwm-deskprev
-
-;scroll-up = i3wm-wsnext
-;scroll-down = i3wm-wsprev
-
 cursor-click = pointer
 cursor-scroll = ns-resize
 
 [bar/bottom]
-;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
 height = 22
-;offset-x = 1%
-;offset-y = 1%
 radius = 0.0
 fixed-center = true
 bottom = true
 
-background = ${colors.background}
-foreground = ${colors.foreground}
+background = ${colors.background_dark}
+foreground = ${colors.foreground_dark}
 
-line-size = 3
+line-size = 0
 line-color = #f00
 
 border-size = 0
 border-color = #00000000
 
-padding-top = 2
+padding-top = 3
 padding-left = 0
 padding-right = 0
 padding-bottom = 0
@@ -132,136 +98,65 @@ font-3 = Font Awesome 5 Free:style=Solid:pixelsize=9:antialias=false;3
 font-4 = Font Awesome 5 Brands:style=Solid:pixelsize=9:antialias=false;3
 font-5 = Weather Icons:size=9;1
 
-modules-left = wlan eth
+modules-left = memory cpu
 modules-center = date
 modules-right =
 
 tray-position = right
 tray-padding = 2
-;tray-background = #0063ff
-
-;wm-restack = bspwm
-;wm-restack = i3
-
-;override-redirect = true
-;enable-ipc = true
-
-;scroll-up = i3wm-wsnext
-;scroll-down = i3wm-wsprev
+tray-background = ${colors.background_dark}
 
 cursor-click = pointer
 cursor-scroll = ns-resize
 
-[module/wshook]
-type = custom/ipc
-hook-0 = i3pbws
-initial = 1
-
-format-background = ${colors.background-alt}
-format-underline = ${colors.primary}
-format-padding = 2
-
-click-right = i3-msg workspace next
-click-left = i3-msg workspace prev
-
-[module/xwindow]
-type = internal/xwindow
-label = %title:0:40:...%
-
-[module/titlehook]
-type = custom/ipc
-hook-0 = /home/xk0nsid/dotFiles/shell/scripts/displaytitle
-initial = 1
-# click-left = polybar-msg hook titlehook 2
-
-[module/weather]
-type = custom/script
-exec = weather.sh
-interval = 180
-label-font = 6
-
-[module/arch-updates]
-type = custom/script
-exec = updates-arch-combined.sh
-interval = 60
-format-prefix = " "
-format-prefix-underline = ${colors.secondary}
-
-[module/i3]
-type = internal/i3
-format = <label-state> <label-mode>
-index-sort = true
-wrapping-scroll = false
-
-; Only show workspaces on the same output as the bar
-;pin-workspaces = true
-
-label-mode-padding = 2
-label-mode-foreground = #000
-label-mode-background = ${colors.primary}
-
-; focused = Active workspace on focused monitor
-label-focused = %name%
-label-focused-background = ${colors.background-alt}
-label-focused-underline = ${colors.primary}
-label-focused-padding = 2
-
-; unfocused = Inactive workspace on any monitor
-label-unfocused = %name%
-label-unfocused-padding = 2
-
-; visible = Active workspace on unfocused monitor
-label-visible = %name%
-label-visible-background = ${self.label-focused-background}
-label-visible-underline = ${self.label-focused-underline}
-label-visible-padding = ${self.label-focused-padding}
-
-; urgent = Workspace with urgency hint set
-label-urgent = %name%
-label-urgent-background = ${colors.alert}
-label-urgent-padding = 2
-
-; Separator in between workspaces
-; label-separator = |
-
-[module/xbacklight]
-type = internal/xbacklight
-
-format = <label>
-label =  %percentage%
-format-underline = #f4912e
-
-bar-width = 10
-bar-indicator = |
-bar-indicator-foreground = #fff
-bar-indicator-font = 2
-bar-fill = ─
-bar-fill-font = 2
-bar-fill-foreground = #9f78e1
-bar-empty = ─
-bar-empty-font = 2
-bar-empty-foreground = ${colors.foreground-alt}
-
-[module/backlight-acpi]
-inherit = module/xbacklight
-type = internal/backlight
-card = intel_backlight
-
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = ""
-format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #f90000
-label =   %percentage:2%% 
+format-prefix = " "
+format-prefix-background = ${colors.background_dark}
+format-prefix-foreground = ${colors.foreground}
+label =  %percentage-cores:2%
 
 [module/memory]
 type = internal/memory
 interval = 2
 format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
+format-prefix-foreground = ${colors.foreground_dark}
 format-underline = #4bffdc
 label = RAM %percentage_used%%
+
+
+# -- Show the current network status
+[module/network]
+type = custom/script
+# Scripting
+exec = ~/.config/polybar/scripts/check_network.sh
+interval = 5
+# Style
+format-background = ${colors.background_dark}
+format-foreground = ${colors.accent}
+format-padding = 2
+# Clicking events
+click-left = python ~/.config/rofi/scripts/networkmenu.py
+click-right = python ~/.config/rofi/scripts/networkmenu.py
+# --
+
+
+# -- Show the number of updates available and sends notifications
+[module/updates]
+type = custom/script
+# Scripting
+exec = ~/.config/polybar/scripts/check_updates.sh
+# Notifications will pop every 2 hours
+interval = 7200
+tail = true
+# Style
+format-background = ${colors.background_dark}
+format-padding = 2
+# Clicking events
+click-left = pamac-manager &
+click-right = pamac-manager --updates &
+# --
 
 [module/wlan]
 type = internal/network
@@ -276,7 +171,7 @@ label-connected = %essid% (%local_ip%)
 format-disconnected =  <label-disconnected>
 format-disconnected-underline = ${self.format-connected-underline}
 label-disconnected = %ifname% disconnected
-label-disconnected-foreground = ${colors.foreground-alt}
+label-disconnected-foreground = ${colors.foreground_dark}
 
 [module/eth]
 type = internal/network
@@ -292,11 +187,11 @@ label-connected = %local_ip%
 format-disconnected = <label-disconnected>
 format-disconnected-underline = ${self.format-connected-underline}
 format-disconnected-prefix = " "
-format-disconnected-prefix-foreground = ${colors.foreground-alt}
+format-disconnected-prefix-foreground = ${colors.foreground_dark}
 label-disconnected = %ifname% disconnected
-label-disconnected-foreground = ${colors.foreground-alt}
+label-disconnected-foreground = ${colors.foreground_dark}
 
-[module/date]
+[module/date_alt]
 type = internal/date
 interval = 5
 
@@ -307,126 +202,10 @@ time = %H:%M
 time-alt = %H:%M
 
 format-prefix = 
-format-prefix-foreground = ${colors.foreground-alt}
+format-prefix-foreground = ${colors.foreground_dark}
 format-underline = #0a6cf5
 
 label = %date% %time%
-
-[module/pulseaudio]
-type = internal/pulseaudio
-
-format-volume = <label-volume>
-format-underline = #36c934
-label-volume =  %percentage%%
-label-volume-foreground = ${root.foreground}
-
-label-muted = 🔇 muted
-label-muted-foreground = #666
-
-bar-volume-width = 10
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
-bar-volume-gradient = false
-bar-volume-indicator = |
-bar-volume-indicator-font = 2
-bar-volume-fill = ─
-bar-volume-fill-font = 2
-bar-volume-empty = ─
-bar-volume-empty-font = 2
-bar-volume-empty-foreground = ${colors.foreground-alt}
-
-[module/alsa]
-type = internal/alsa
-
-format-volume = <label-volume> <bar-volume>
-label-volume = VOL
-label-volume-foreground = ${root.foreground}
-
-format-muted-prefix = " "
-format-muted-foreground = ${colors.foreground-alt}
-label-muted = sound muted
-
-bar-volume-width = 10
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
-bar-volume-gradient = false
-bar-volume-indicator = |
-bar-volume-indicator-font = 2
-bar-volume-fill = ─
-bar-volume-fill-font = 2
-bar-volume-empty = ─
-bar-volume-empty-font = 2
-bar-volume-empty-foreground = ${colors.foreground-alt}
-
-[module/battery]
-type = internal/battery
-battery = BAT1
-adapter = ACAD
-full-at = 98
-
-format-charging-prefix = " "
-format-charging = <label-charging>
-format-charging-underline = #ffb52a
-
-format-discharging = <animation-discharging> <label-discharging>
-format-discharging-underline = ${self.format-charging-underline}
-
-format-full = " Full"
-;format-full-prefix = " "
-;format-full-prefix-foreground = ${colors.foreground-alt}
-format-full-underline = ${self.format-charging-underline}
-
-;ramp-capacity-0 = 
-;ramp-capacity-1 = 
-;ramp-capacity-2 = 
-;ramp-capacity-foreground = ${colors.foreground-alt}
-
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-3 = 
-animation-charging-4 = 
-; Framerate in milliseconds
-animation-charging-framerate = 750
-
-animation-discharging-0 = 
-animation-discharging-1 = 
-animation-discharging-2 = 
-animation-discharging-3 = 
-animation-discharging-4 = 
-animation-discharging-framerate = 750
-
-[module/temperature]
-type = internal/temperature
-thermal-zone = 0
-warn-temperature = 60
-
-format = <ramp> <label>
-format-underline = #f50a4d
-format-warn = <ramp> <label-warn>
-format-warn-underline = ${self.format-underline}
-
-label = %temperature-c%
-label-warn = %temperature-c%
-label-warn-foreground = ${colors.secondary}
-
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
-ramp-3 = 
-ramp-4 = 
-;ramp-foreground = ${colors.foreground-alt}
-ramp-foreground = #fff
 
 [settings]
 screenchange-reload = true
@@ -437,7 +216,7 @@ screenchange-reload = true
 ;pseudo-transparency = false
 
 [global/wm]
-margin-top = 5
-margin-bottom = 5
+margin-top = 1
+margin-bottom = 1
 
 ; vim:ft=dosini

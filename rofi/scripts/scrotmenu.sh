@@ -12,13 +12,13 @@ options="$screen\n$area\n$window"
 chosen="$(echo -e "$options" | $rofi_command -dmenu -selected-row 1)"
 case $chosen in
     $screen)
-        sleep 1; scrot
+        sleep 1; i3-scrot
         ;;
     $area)
-        scrot -s
+        i3-scrot -s
         ;;
     $window)
-        sleep 1; scrot -u
+        sleep 1; i3-scrot -u
         ;;
 esac
 

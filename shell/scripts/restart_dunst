@@ -1,0 +1,5 @@
+#!/usr/bin/sh
+
+killall dunst
+
+i3-msg "exec --no-startup-id dunst"
