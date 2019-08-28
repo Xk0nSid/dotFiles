@@ -105,7 +105,7 @@ set noshowmode                                                                  
 set gdefault                                                                    "Set global flag for search and replace
 set guicursor=a:blinkon500-blinkwait500-blinkoff500                             "Set cursor blinking rate
 set cursorline                                                                  "Highlight current line
-set cursorcolumn                                                                "Highlight current column
+" set cursorcolumn                                                                "Highlight current column
 set smartcase                                                                   "Smart case search if there is uppercase
 set ignorecase                                                                  "case insensitive search
 set showmatch                                                                   "Highlight matching bracket

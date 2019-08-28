@@ -52,7 +52,7 @@ font-5 = Weather Icons:size=9;1
 
 modules-left = i3
 modules-center = xwindow
-modules-right = network battery
+modules-right = updates network battery
 
 ;tray-position = right
 ;tray-padding = 2

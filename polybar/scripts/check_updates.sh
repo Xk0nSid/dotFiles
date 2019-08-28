@@ -5,7 +5,7 @@ echo "%{F#e2e2e2 T2} "
 # sleep 10
 
 updates_count=$(checkupdates | wc -l)
-notify_icon=/usr/share/icons/Paper/32x32/apps/system-software-update.png
+noitfy_icon=/usr/share/icons/Papirus/32x32/apps/system-software-update.svg
 
 if (( $updates_count > 0 )); then
     notify-send -i $notify_icon "Pacman" "$updates_count updates available"
@@ -20,10 +20,10 @@ else
     done
     if ! [ $online ]; then
         notify-send -i $notify_icon "Pacman" "Cannot check for updates (no internet)"
-        echo "%{F#728cbb T2}%{F#e2e2e2 O-2 T3}%{O0}"
+        echo "%{F#728cbb T2}%{F#e2e2e2 O-2 T3} %{O0}"
     else
         notify-send -i $notify_icon "Pacman" "System is up to date"
-        echo "%{F#728cbb T2}%{F#e2e2e2 O-2 T3}%{O0}"
+        echo "%{F#728cbb T2}%{F#e2e2e2 O-2 T3} %{O0}"
     fi
 fi
 
