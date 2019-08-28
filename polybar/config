@@ -135,7 +135,7 @@ interval = 5
 # Style
 format-background = ${colors.background_dark}
 format-foreground = ${colors.accent}
-format-padding = 2
+format-padding = 1
 # Clicking events
 click-left = python ~/.config/rofi/scripts/networkmenu.py
 click-right = python ~/.config/rofi/scripts/networkmenu.py
@@ -152,7 +152,7 @@ interval = 7200
 tail = true
 # Style
 format-background = ${colors.background_dark}
-format-padding = 2
+format-padding = 1
 # Clicking events
 click-left = pamac-manager &
 click-right = pamac-manager --updates &
