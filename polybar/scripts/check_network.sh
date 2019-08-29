@@ -12,28 +12,29 @@ if [ $? -eq 0 ]; then
     # Cable Network
     if [ $(cat /sys/class/net/$eth/carrier) == 1 ]; then
         # Cable connected
-        label+=" "
+        label+="%{F#728cbb} "
     else
         # Cable disconnected
-        label+="%{F#de935f} "
+        # label+="%{F#de935f} "
+        label+="%{F#aaaaaa} "
     fi
 
     # Wireless network
     if [ $(cat /sys/class/net/$wifi/carrier) == 1 ]; then
         # Wifi is connected
-        label+=" "
+        label+="%{F#728cbb} "
     else
         # Wifi is disconnected
-        label+="%{F#de935f} "
+        label+="%{F#aaaaaa} "
     fi
 
     # Checks for OpenVPN and Wireguard
     if [ "$(pgrep openvpn)" ] || [ "$(pgrep wireguard)" ]; then
         # VPN is on
-        label+="%{F#e2e2e2} "
+        label+="%{F#728cbb} "
     else
         # VPN is off
-        label+="%{F#de935f} "
+        label+="%{F#aaaaaa} "
     fi
 else
     # Offline

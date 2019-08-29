@@ -29,7 +29,7 @@ fixed-center = true
 background = ${colors.background_dark}
 foreground = ${colors.foreground_dark}
 
-line-size = 3
+line-size = 0
 line-color = #f00
 
 border-size = 0
@@ -43,12 +43,12 @@ padding-bottom = 2
 module-margin-left = 0
 module-margin-right = 0
 
-font-0 = Fira Code Medium:pixelsize=9;1
-font-1 = fixed:pixelsize=9;1
-font-2 = RobotoMono Nerd Font Mono:pixelsize=9;1
+font-0 = Fira Code Medium:pixelsize=9;3
+font-1 = fixed:pixelsize=9;3
+font-2 = RobotoMono Nerd Font Mono:pixelsize=9;3
 font-3 = Font Awesome 5 Free:style=Solid:pixelsize=8:antialias=true;3
 font-4 = Font Awesome 5 Brands:style=Solid:pixelsize=8:antialias=true;3
-font-5 = Weather Icons:size=9;1
+font-5 = Weather Icons:size=9;3
 
 modules-left = i3
 modules-center = xwindow
@@ -91,12 +91,12 @@ padding-bottom = 0
 module-margin-left = 1
 module-margin-right = 0
 
-font-0 = Fira Code Medium:pixelsize=9;1
-font-1 = fixed:pixelsize=9;1
-font-2 = RobotoMono Nerd Font Mono:pixelsize=9;1
+font-0 = Fira Code Medium:pixelsize=9;3
+font-1 = fixed:pixelsize=9;3
+font-2 = RobotoMono Nerd Font Mono:pixelsize=9;3
 font-3 = Font Awesome 5 Free:style=Solid:pixelsize=9:antialias=false;3
 font-4 = Font Awesome 5 Brands:style=Solid:pixelsize=9:antialias=false;3
-font-5 = Weather Icons:size=9;1
+font-5 = Weather Icons:size=9;3
 
 modules-left = memory cpu
 modules-center = date
