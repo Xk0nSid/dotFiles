@@ -43,8 +43,10 @@ padding-bottom = 2
 module-margin-left = 0
 module-margin-right = 0
 
-font-0 = Fira Code Medium:pixelsize=9;3
-font-1 = fixed:pixelsize=9;3
+; font-0 = Fira Code Medium:pixelsize=9;3
+font-0 = Operator Mono Medium:pixelsize=9;3
+; font-1 = fixed:pixelsize=9;3
+font-1 = Operator Mono Medium:pixelsize=9;3
 font-2 = RobotoMono Nerd Font Mono:pixelsize=9;3
 font-3 = Font Awesome 5 Free:style=Solid:pixelsize=8:antialias=true;3
 font-4 = Font Awesome 5 Brands:style=Solid:pixelsize=8:antialias=true;3
@@ -91,11 +93,13 @@ padding-bottom = 0
 module-margin-left = 1
 module-margin-right = 0
 
-font-0 = Fira Code Medium:pixelsize=9;3
+; font-0 = Fira Code Medium:pixelsize=9;3
+font-0 = Operator Mono Medium:pixelsize=9;3
 font-1 = fixed:pixelsize=9;3
-font-2 = RobotoMono Nerd Font Mono:pixelsize=9;3
-font-3 = Font Awesome 5 Free:style=Solid:pixelsize=9:antialias=false;3
-font-4 = Font Awesome 5 Brands:style=Solid:pixelsize=9:antialias=false;3
+; font-2 = RobotoMono Nerd Font Mono:pixelsize=9;3
+font-2 = Operator Mono Medium:pixelsize=9;3
+font-3 = Font Awesome 5 Free:style=Solid:pixelsize=8:antialias=true;3
+font-4 = Font Awesome 5 Brands:style=Solid:pixelsize=8:antialias=true;3
 font-5 = Weather Icons:size=9;3
 
 modules-left = memory cpu

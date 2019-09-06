@@ -184,7 +184,6 @@ set wildignore+=*.png,*.jpg,*.gif"
 
 syntax on
 set background=dark
-let base16colorspace=256
 colorscheme onedark
 hi Normal ctermbg=NONE
 " Remove highlighting of Operator because it is reversed with cursorline
@@ -197,8 +196,12 @@ hi TagbarSignature guifg=#80AAFF
 " Disables color-scheme background color
 hi Normal guibg=NONE
 
+let &t_ZH="\e[3m"
+let &t_ZR="\e[23m"
+
 " Have italic comments
 hi Comment cterm=italic gui=italic
+hi htmlArg gui=italic cterm=italic
 
 " Set a syntax for some extenstions
 au BufReadPost *.opml setlocal syntax=xml | setlocal filetype=xml
@@ -231,7 +234,7 @@ vnoremap <Leader>p "0p
 nnoremap <Leader>h viw"0p
 
 " Toggle buffer list
-nnoremap <Leader>ff :GFiles<CR>
+nnoremap <Leader>ff :Files<CR>
 nnoremap <Leader>fb :Buffers<CR>
 
 " Indenting in visual mode
@@ -287,6 +290,7 @@ call deoplete#custom#source('_',
 call deoplete#custom#option('sources', {
     \ 'python': ['LanguageClient'],
     \ 'rust': ['LanguageClient'],
+    \ 'go': ['LanguageClient'],
 \})
 
 let g:LanguageClient_serverCommands = {

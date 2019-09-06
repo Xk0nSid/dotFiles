@@ -40,3 +40,5 @@ export PATH=/home/xk0nsid/.nimble/bin:$PATH
 export PATH=$PATH:$HOME/.poetry/bin
 
 export PATH=$PATH:$HOME/.config/rofi/bins
+
+export PATH=$PATH:$HOME/.gem/ruby/2.6.0/bin

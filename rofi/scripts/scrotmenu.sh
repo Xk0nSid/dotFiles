@@ -18,7 +18,7 @@ case $chosen in
         i3-scrot -s
         ;;
     $window)
-        sleep 1; i3-scrot -u
+        sleep 1; i3-scrot -w
         ;;
 esac
 

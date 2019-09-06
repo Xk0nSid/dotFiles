@@ -2,7 +2,7 @@
 
 ;; Place your private configuration here
 
-(setq doom-font (font-spec :family "FuraCode Nerd Font Mono" :size 11))
+(setq doom-font (font-spec :family "Operator Mono Medium" :size 12))
 
 ;; Enable Line Numbers (relative)
 (setq display-line-numbers-type 'relative)
