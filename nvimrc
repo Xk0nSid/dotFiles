@@ -22,6 +22,10 @@ Plug 'wsdjeg/FlyGrep.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-surround'
 
+Plug 'junegunn/vim-easy-align'
+" Align GitHub-flavored Markdown tables
+au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
+
 " Tags sidebar
 Plug 'majutsushi/tagbar'
 " Ctrl+T -> Toggles the tagbar
@@ -339,10 +343,10 @@ let g:ale_sign_warning = '⚠'
 
 " Python
 " Limit lines to 79 characters and toggle the coloring of the 80th column
-au FileType python
-    \ setlocal textwidth=79 |
-    \ setlocal fileformat=unix |
-    \ :call ToggleCC()
+" au FileType python
+"     \ setlocal textwidth=79 |
+"     \ setlocal fileformat=unix |
+"     \ :call ToggleCC()
 
 " Javascript, HTML, CSS and XML
 " Change the indent width to 2 spaces

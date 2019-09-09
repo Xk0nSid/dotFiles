@@ -63,9 +63,7 @@ ZSH_THEME="xks-lambda"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-    emoji
     git
-    jira
     z
 )
 

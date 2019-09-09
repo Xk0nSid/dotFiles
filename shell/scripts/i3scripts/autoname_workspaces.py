@@ -91,6 +91,7 @@ WINDOW_ICONS = {
     'mupdf': fa.icons['file-pdf'],
     'zathura': '',
     'mysql-workbench-bin': fa.icons['database'],
+    'mongodb compass community': fa.icons['database'],
     'nautilus': fa.icons['copy'],
     'nemo': fa.icons['copy'],
     'openscad': fa.icons['cube'],
