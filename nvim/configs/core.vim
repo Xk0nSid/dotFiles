@@ -30,6 +30,7 @@ set grepprg=rg\ --vimgrep                                                "Use ri
 set tagcase=smart                                                        "Use smarcase for tags
 set pastetoggle=<F2>
 set history=500                                                          "Store lots of :cmdline history
+set statusline+=%F
 
 " }}}
 " ================ Turn Off Swap Files ============== {{{
