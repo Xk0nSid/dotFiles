@@ -1,3 +1,5 @@
+#compdef goto
+
 function _goto() {
     local -a servers
     servers=(`cat ~/bin/ssh_connect.exp | rg "==" | awk '{print $5}' | tr -d '"' | tr -d '}' | tr '\n' ' ' | tr -d '{'`)

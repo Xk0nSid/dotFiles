@@ -65,6 +65,7 @@ ZSH_THEME="xks-lambda"
 plugins=(
     git
     z
+    zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -88,14 +89,13 @@ if [ -f $HOME/.functions ]; then
     . $HOME/.functions
 fi
 
-if [ -f $HOME/dotFiles/shell/completions ]; then
-    for f in $(ls $HOME/dotFiles/shell/completions);
-    do
-        . $f
-    done
-fi
+# if [ -f $HOME/dotFiles/shell/completions ]; then
+#     for f in $(ls $HOME/dotFiles/shell/completions);
+#     do
+#         . $f
+#     done
+# fi
 
 # Completions
-
-fpath+=~/.zfunc
+fpath=(~/.zfunc $fpath)
 compinit

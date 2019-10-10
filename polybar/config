@@ -23,7 +23,7 @@ width = 100%
 height = 22
 ;offset-x = 1%
 ;offset-y = 1%
-radius = 0.0
+radius = 0
 fixed-center = true
 
 background = ${colors.background_dark}
@@ -41,7 +41,7 @@ padding-right = 0
 padding-bottom = 2
 
 module-margin-left = 0
-module-margin-right = 0
+module-margin-right = 2
 
 ; font-0 = Fira Code Medium:pixelsize=9;3
 font-0 = Operator Mono Medium:pixelsize=9;3
@@ -72,7 +72,7 @@ cursor-scroll = ns-resize
 [bar/bottom]
 width = 100%
 height = 22
-radius = 0.0
+radius = 0
 fixed-center = true
 bottom = true
 

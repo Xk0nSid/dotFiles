@@ -1,6 +1,6 @@
 export TERM="screen-256color"
 
-export EDITOR="vim"
+export EDITOR="nvim"
 
 export LC_ALL="en_US.UTF-8"
 
@@ -8,10 +8,11 @@ export PATH="$PATH:$HOME/bin"
 
 export PATH="$HOME/.cargo/bin:$PATH"
 
+# Golang
+export GOROOT=/usr/lib/go
 export GOPATH=$HOME/workspace/go
-
+export GOBIN=$GOPATH/bin
 export PATH="$PATH:$GOPATH/bin"
-export PATH="$PATH:$HOME/go/bin"
 
 export JIRA_URL="http://jira.shopclues.com"
 
@@ -42,3 +43,14 @@ export PATH=$PATH:$HOME/.poetry/bin
 export PATH=$PATH:$HOME/.config/rofi/bins
 
 export PATH=$PATH:$HOME/.gem/ruby/2.6.0/bin
+
+# Doom Emacs
+export PATH=$PATH:$HOME/.emacs.d/bin
+
+# FZF
+
+# Setting fd as the default source for fzf
+export FZF_DEFAULT_COMMAND='fd --type f'
+
+# To apply the command to CTRL-T as well
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
