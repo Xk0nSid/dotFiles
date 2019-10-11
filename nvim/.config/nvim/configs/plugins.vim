@@ -20,14 +20,11 @@ Plug 'fatih/vim-go'
 Plug 'Yggdroot/indentLine'
 
 " Color Scheme
-Plug 'simonsmith/material.vim'
+Plug 'Xk0nSid/material.vim'
 
 " Status bar
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-
-" Smart completion (to work with CoC)
-" Plug 'zxqfl/tabnine-vim'
 
 " Tagbar
 Plug 'liuchengxu/vista.vim'

@@ -1,5 +1,7 @@
 " User Interface
 
+" au Colorscheme * hi Keyword gui=italic cterm=italic ctermfg='#f78c6c'
+
 syntax on
 set background=dark
 let g:material_theme_style = 'palenight'

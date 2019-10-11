@@ -37,13 +37,15 @@ Symlink individual files to their respective destination
 * i3
 
 ```sh
-$ ln -s $HOME/dotFiles/i3 $HOME/.i3
+$ cd dotFiles
+$ stow i3
 ```
 
 * Neovim
 
 ```sh
-$ ln -s $HOME/dotFiles/nvimrc $HOME/.config/nvim/init.vim
+$ cd dotFiles
+$ stow nvim
 ```
 
 * Polybar

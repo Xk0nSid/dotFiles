@@ -1,4 +1,4 @@
-export TERM="screen-256color"
+export TERM="tmux-256color"
 
 export EDITOR="nvim"
 
