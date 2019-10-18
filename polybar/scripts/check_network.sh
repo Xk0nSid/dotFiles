@@ -16,7 +16,7 @@ if [ $? -eq 0 ]; then
     else
         # Cable disconnected
         # label+="%{F#de935f} "
-        label+="%{F#aaaaaa} "
+        label+="%{F#d8000c} "
     fi
 
     # Wireless network
@@ -25,7 +25,7 @@ if [ $? -eq 0 ]; then
         label+="%{F#728cbb} "
     else
         # Wifi is disconnected
-        label+="%{F#aaaaaa} "
+        label+="%{F#d8000c} "
     fi
 
     # Checks for OpenVPN and Wireguard
@@ -34,7 +34,7 @@ if [ $? -eq 0 ]; then
         label+="%{F#728cbb} "
     else
         # VPN is off
-        label+="%{F#aaaaaa} "
+        label+="%{F#d8000c} "
     fi
 else
     # Offline

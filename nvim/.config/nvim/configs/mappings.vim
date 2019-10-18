@@ -1,5 +1,8 @@
 " Key Mappings
 
+" Floating terminal
+nnoremap <Leader>tt <Esc>:call FloatTerm()<CR>
+
 " Copy to system clipboard
 vnoremap <C-c> "+y
 " Paste from system clipboard with Ctrl + v

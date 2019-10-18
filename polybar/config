@@ -54,7 +54,7 @@ font-5 = Weather Icons:size=9;3
 
 modules-left = i3
 modules-center = xwindow
-modules-right = updates network battery
+modules-right = online network battery
 
 ;tray-position = right
 ;tray-padding = 2
@@ -93,18 +93,16 @@ padding-bottom = 0
 module-margin-left = 1
 module-margin-right = 0
 
-; font-0 = Fira Code Medium:pixelsize=9;3
 font-0 = Operator Mono Medium:pixelsize=9;3
-font-1 = fixed:pixelsize=9;3
-; font-2 = RobotoMono Nerd Font Mono:pixelsize=9;3
-font-2 = Operator Mono Medium:pixelsize=9;3
+font-1 = Operator Mono Medium:pixelsize=9;3
+font-2 = RobotoMono Nerd Font Mono:pixelsize=9;3
 font-3 = Font Awesome 5 Free:style=Solid:pixelsize=8:antialias=true;3
 font-4 = Font Awesome 5 Brands:style=Solid:pixelsize=8:antialias=true;3
 font-5 = Weather Icons:size=9;3
 
 modules-left = memory cpu
 modules-center = date
-modules-right =
+modules-right = updates
 
 tray-position = right
 tray-padding = 2
@@ -145,6 +143,13 @@ click-left = python ~/.config/rofi/scripts/networkmenu.py
 click-right = python ~/.config/rofi/scripts/networkmenu.py
 # --
 
+[module/online]
+type = custom/script
+exec = ~/.config/polybar/scripts/check_online.sh
+interval = 60
+tail = true
+format-background = ${colors.background_dark}
+format-prefix = Online: 
 
 # -- Show the number of updates available and sends notifications
 [module/updates]
@@ -156,7 +161,6 @@ interval = 7200
 tail = true
 # Style
 format-background = ${colors.background_dark}
-format-padding = 1
 # Clicking events
 click-left = pamac-manager &
 click-right = pamac-manager --updates &
