@@ -1,5 +1,8 @@
 " Plugin Settings
 
+" nvim colorizer
+lua require'colorizer'.setup()
+
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Normal'],
   \ 'bg':      ['bg', 'Normal'],
@@ -20,7 +23,7 @@ let g:fzf_colors =
 "Airline   "
 """"""""""""
 "main settings
-let g:airline_theme='material'
+let g:airline_theme='moonfly'
 let g:airline_powerline_fonts = 1
 let g:airline_symbols = {}
 let g:airline_skip_empty_sections = 1

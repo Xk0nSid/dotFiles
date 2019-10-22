@@ -21,10 +21,14 @@ Plug 'Yggdroot/indentLine'
 
 " Color Scheme
 Plug 'Xk0nSid/material.vim'
+Plug 'bluz71/vim-moonfly-colors'
 
 " Status bar
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+
+" Highlight colors
+Plug 'norcalli/nvim-colorizer.lua'
 
 " Tagbar
 Plug 'liuchengxu/vista.vim'

@@ -1,19 +1,20 @@
 " User Interface
 
-" au Colorscheme * hi Keyword gui=italic cterm=italic ctermfg='#f78c6c'
-
 syntax on
 set background=dark
-let g:material_theme_style = 'palenight'
-let g:material_terminal_italics = 1
-colorscheme material
-" hi Normal ctermbg=NONE
+" let g:material_theme_style = 'palenight'
+" let g:material_terminal_italics = 1
+" colorscheme material
+let g:moonflyCursorColor = 1
+let g:moonflyUnderlineMatchParen = 1
+colorscheme moonfly
+hi Normal ctermbg=NONE
 " Remove highlighting of Operator because it is reversed with cursorline
 " enabled
-" hi! Operator guifg=NONE guibg=NONE
+hi! Operator guifg=NONE guibg=NONE
 
 " Fixes methods' arguments color in the Tagbar
-" hi TagbarSignature guifg=#80AAFF
+hi TagbarSignature guifg=#80AAFF
 
 " Disables color-scheme background color
 " hi Normal guibg=NONE

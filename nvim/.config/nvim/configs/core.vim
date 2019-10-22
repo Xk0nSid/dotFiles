@@ -32,6 +32,10 @@ set pastetoggle=<F2>
 set history=500                                                          "Store lots of :cmdline history
 set statusline+=%F
 
+
+set undofile
+set undodir=~/.config/nvim/undo
+
 " }}}
 " ================ Turn Off Swap Files ============== {{{
 
