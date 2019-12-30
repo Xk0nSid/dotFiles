@@ -13,16 +13,16 @@
   "diagnostic.virtualTextPrefix": " ❯❯❯ ",
 
   // Git
-  "git.enableGutters": true,
-  "git.branchCharacter":"\uf408",
-  "git.addGlameToBufferVar": true,
-  "git.addGlameToVirtualText": false,
-  "git.virtualTextPrefix": " ❯❯❯ ",
-  "git.addedSign.hlGroup": "GitGutterAdd",
-  "git.changedSign.hlGroup": "GitGutterChange",
-  "git.removedSign.hlGroup": "GitGutterDelete",
-  "git.topRemovedSign.hlGroup": "GitGutterDelete",
-  "git.changeRemovedSign.hlGroup": "GitGutterChangeDelete",
+  // "git.enableGutters": true,
+  // "git.branchCharacter":"\uf408",
+  // "git.addGlameToBufferVar": true,
+  // "git.addGlameToVirtualText": false,
+  // "git.virtualTextPrefix": " ❯❯❯ ",
+  // "git.addedSign.hlGroup": "GitGutterAdd",
+  // "git.changedSign.hlGroup": "GitGutterChange",
+  // "git.removedSign.hlGroup": "GitGutterDelete",
+  // "git.topRemovedSign.hlGroup": "GitGutterDelete",
+  // "git.changeRemovedSign.hlGroup": "GitGutterChangeDelete",
 
   "languageserver": {
     "golang": {

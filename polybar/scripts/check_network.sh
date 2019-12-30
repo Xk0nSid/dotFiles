@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Interfaces
-eth=enp8s0
-wifi=wlp9s0
+eth=enp0s31f6
+wifi=wlp5s0
 
 # Echo the network label depending on network status
 label="%{T4}"

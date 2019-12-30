@@ -14,36 +14,42 @@ export GOPATH=$HOME/workspace/go
 export GOBIN=$GOPATH/bin
 export PATH="$PATH:$GOPATH/bin"
 
-export JIRA_URL="http://jira.shopclues.com"
-
-export PATH="$HOME/.npm-global/bin:$PATH"
+# export PATH="$HOME/.npm-global/bin:$PATH"
 
 export PATH="$HOME/.local/bin:$PATH"
 
-export PATH="$HOME/dotFiles/shell/scripts:$PATH"
+export PATH="$HOME/dotfiles/shell/scripts:$PATH"
 
 # Rust Language Server
 export DYLD_LIBRARY_PATH=${HOME}/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib
 export RLS_ROOT=${HOME}/git/rust/rls
 
 # OCaml Opam
-export OPAM_SWITCH_PREFIX='/home/xk0nsid/.opam/default'
-export CAML_LD_LIBRARY_PATH='/home/xk0nsid/.opam/default/lib/stublibs:Updated by package ocaml'
-export OCAML_TOPLEVEL_PATH='/home/xk0nsid/.opam/default/lib/toplevel'
-export MANPATH=':/home/xk0nsid/.opam/default/man'
-export PATH=$PATH:$HOME/.opam/default/bin
+# export OPAM_SWITCH_PREFIX='/home/xk0nsid/.opam/default'
+# export CAML_LD_LIBRARY_PATH='/home/xk0nsid/.opam/default/lib/stublibs:Updated by package ocaml'
+# export OCAML_TOPLEVEL_PATH='/home/xk0nsid/.opam/default/lib/toplevel'
+# export MANPATH=':/home/xk0nsid/.opam/default/man'
+# export PATH=$PATH:$HOME/.opam/default/bin
 
 export PATH="$PATH:$HOME/.opam/default/bin"
 
 export PATH=$PATH:$HOME/.linkerd2/bin
 
-export PATH=/home/xk0nsid/.nimble/bin:$PATH
+# export PATH=/home/xk0nsid/.nimble/bin:$PATH
 
 export PATH=$PATH:$HOME/.poetry/bin
 
 export PATH=$PATH:$HOME/.config/rofi/bins
 
 export PATH=$PATH:$HOME/.gem/ruby/2.6.0/bin
+
+NPM_PACKAGES="${HOME}/.npm-packages"
+
+export PATH="$PATH:$NPM_PACKAGES/bin"
+
+# Preserve MANPATH if you already defined it somewhere in your config.
+# Otherwise, fall back to `manpath` so we can inherit from `/etc/manpath`.
+export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
 
 # Doom Emacs
 export PATH=$PATH:$HOME/.emacs.d/bin

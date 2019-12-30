@@ -5,9 +5,10 @@ set background=dark
 " let g:material_theme_style = 'palenight'
 " let g:material_terminal_italics = 1
 " colorscheme material
-let g:moonflyCursorColor = 1
-let g:moonflyUnderlineMatchParen = 1
-colorscheme moonfly
+colorscheme spacecamp
+" let g:moonflyCursorColor = 1
+" let g:moonflyUnderlineMatchParen = 1
+" colorscheme moonfly
 hi Normal ctermbg=NONE
 " Remove highlighting of Operator because it is reversed with cursorline
 " enabled

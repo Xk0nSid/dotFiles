@@ -31,6 +31,7 @@ set tagcase=smart                                                        "Use sm
 set pastetoggle=<F2>
 set history=500                                                          "Store lots of :cmdline history
 set statusline+=%F
+set textwidth=80
 
 
 set undofile

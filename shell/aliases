@@ -6,16 +6,12 @@ alias ls="lsd"
 alias la="lsd -a"
 alias ll="lsd -l"
 
+alias tree="ls --tree"
+
 alias grep="rga"
-
-alias localdb="mycli -h 192.168.20.171 -u dev -p CluesDev shopclue_cart"
-
-alias webroot="cd $HOME/workspace/www"
 
 alias cat="bat"
 alias more="bat --paging always"
-
-alias config="git --git-dir=$HOME/dotFiles/.git --work-tree=$HOME/dotFiles"
 
 # Use neovim instead of vim
 alias vim="nvim"
@@ -24,6 +20,7 @@ alias edxlist="edx-dl -u siddharth_yadav@outlook.com --list-courses"
 alias edxdld="edx-dl -u siddharth_yadav@outlook.com"
 
 alias gs="git status"
+alias gd="git diff"
 
 alias em="emacs -nw"
 

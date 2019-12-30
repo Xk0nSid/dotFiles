@@ -2,7 +2,7 @@
 
 options='-columns 1 -width 70 -lines 25 -bw 2 -yoffset -2 -location 1'
 
-selected=$(cat $HOME/dotFiles/shell/scripts/fa5-icon-list.txt | rofi -p "Select icon:" -theme sidebar -dmenu -i -markup-rows ${options})
+selected=$(cat $HOME/dotfiles/shell/scripts/fa5-icon-list.txt | rofi -p "Select icon:" -theme sidebar -dmenu -i -markup-rows ${options})
 
 # exit if nothing is selected
 [[ -z $selected ]] && exit

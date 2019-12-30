@@ -1,1 +1,1 @@
-/home/xk0nsid/dotFiles/shell/scripts/i3scripts/autoname_workspaces.py
+./i3scripts/autoname_workspaces.py

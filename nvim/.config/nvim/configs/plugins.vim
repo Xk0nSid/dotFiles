@@ -9,11 +9,13 @@ endif
 call plug#begin('~/.config/nvim/plugged')
 
 Plug 'junegunn/fzf.vim'
+Plug 'liuchengxu/vim-clap'
 Plug 'wsdjeg/FlyGrep.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'Raimondi/delimitMate'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'fatih/vim-go'
+Plug 'zah/nim.vim'
 
 
 " Display vertical line for indentation levels
@@ -22,6 +24,7 @@ Plug 'Yggdroot/indentLine'
 " Color Scheme
 Plug 'Xk0nSid/material.vim'
 Plug 'bluz71/vim-moonfly-colors'
+Plug 'Xk0nSid/SpaceCamp'
 
 " Status bar
 Plug 'vim-airline/vim-airline'

@@ -1,9 +1,26 @@
 #!/usr/bin/bash
 
-source $HOME/dotFiles/shell/shopclues_fn.sh
+# source $HOME/dotFiles/shell/shopclues_fn.sh
+
+function w() {
+    . venv/bin/activate
+}
+
+function pmr() {
+    python manage.py runserver
+}
+
+function vpn() {
+    sudo openvpn --config $HOME/workspace/siddharth.yadav@collegedekho.com.ovpn
+}
 
 function workon() {
     dir=$1
     . "$HOME/workspace/python/$dir/venv/bin/activate"
     cd "$HOME/workspace/python/$dir" || return
+}
+
+function cdwork() {
+    cd workspace/python/collegedekho/elms/enterpriselms
+    . ../../clients-setup/venv/bin/activate
 }
