@@ -5,7 +5,7 @@ set background=dark
 " let g:material_theme_style = 'palenight'
 " let g:material_terminal_italics = 1
 " colorscheme material
-colorscheme spacecamp
+colorscheme nord
 " let g:moonflyCursorColor = 1
 " let g:moonflyUnderlineMatchParen = 1
 " colorscheme moonfly

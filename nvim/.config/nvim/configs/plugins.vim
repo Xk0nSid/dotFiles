@@ -23,8 +23,8 @@ Plug 'Yggdroot/indentLine'
 
 " Color Scheme
 Plug 'Xk0nSid/material.vim'
-Plug 'bluz71/vim-moonfly-colors'
 Plug 'Xk0nSid/SpaceCamp'
+Plug 'arcticicestudio/nord-vim'
 
 " Status bar
 Plug 'vim-airline/vim-airline'
