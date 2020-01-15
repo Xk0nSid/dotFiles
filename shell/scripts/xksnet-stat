@@ -1,0 +1,102 @@
+#!/usr/bin/env python3
+"""
+NetworkManager States
+
+NM_STATE_UNKNOWN = 0
+Networking state is unknown. This indicates a daemon error that makes it unable
+to reasonably assess the state. In such event the applications are expected to
+assume Internet connectivity might be present and not disable controls that
+require network access. The graphical shells may hide the network accessibility
+indicator altogether since no meaningful status indication can be provided.
+
+NM_STATE_ASLEEP = 10
+Networking is not enabled, the system is being suspended or resumed from
+suspend.
+
+NM_STATE_DISCONNECTED = 20
+There is no active network connection. The graphical shell should indicate no
+network connectivity and the applications should not attempt to access the
+network.
+
+NM_STATE_DISCONNECTING = 30
+Network connections are being cleaned up. The applications should tear down
+their network sessions.
+
+NM_STATE_CONNECTING = 40
+A network connection is being started The graphical shell should indicate the
+network is being connected while the applications should still make no attempts
+to connect the network.
+
+NM_STATE_CONNECTED_LOCAL = 50
+There is only local IPv4 and/or IPv6 connectivity, but no default route to
+access the Internet. The graphical shell should indicate no network
+connectivity.
+
+NM_STATE_CONNECTED_SITE = 60
+There is only site-wide IPv4 and/or IPv6 connectivity. This means a default
+route is available, but the Internet connectivity check (see "Connectivity"
+property) did not succeed. The graphical shell should indicate limited network
+connectivity.
+
+NM_STATE_CONNECTED_GLOBAL = 70
+There is global IPv4 and/or IPv6 Internet connectivity This means the Internet
+connectivity check succeeded, the graphical shell should indicate full network
+connectivity.
+"""
+
+from dbus import SystemBus
+import subprocess
+from gi.repository import GLib
+from dbus.mainloop.glib import DBusGMainLoop
+
+
+class NM_STATE:
+    NM_STATE_UNKNOWN = 0
+    NM_STATE_ASLEEP = 10
+    NM_STATE_DISCONNECTED = 20
+    NM_STATE_DISCONNECTING = 30
+    NM_STATE_CONNECTING = 40
+    NM_STATE_CONNECTED_LOCAL = 50
+    NM_STATE_CONNECTED_SITE = 60
+    NM_STATE_CONNECTED_GLOBAL = 70
+
+def filter_cb(bus, message):
+    nm_state = message.get_args_list()[0]
+
+    if (nm_state == NM_STATE.NM_STATE_UNKNOWN):
+        polybar_msg(1)
+    if (nm_state == NM_STATE.NM_STATE_ASLEEP):
+        polybar_msg(2)
+    if (nm_state == NM_STATE.NM_STATE_DISCONNECTED):
+        polybar_msg(3)
+    if (nm_state == NM_STATE.NM_STATE_DISCONNECTING):
+        polybar_msg(4)
+    if (nm_state == NM_STATE.NM_STATE_CONNECTING):
+        polybar_msg(5)
+    if (nm_state == NM_STATE.NM_STATE_CONNECTED_LOCAL):
+        polybar_msg(6)
+    if (nm_state == NM_STATE.NM_STATE_CONNECTED_SITE):
+        polybar_msg(7)
+    if (nm_state == NM_STATE.NM_STATE_CONNECTED_GLOBAL):
+        polybar_msg(8)
+
+
+def polybar_msg(hook):
+    subprocess.check_call(["polybar-msg", "hook", "network_status", "%d" % hook])
+
+
+def main():
+    DBusGMainLoop(set_as_default=True)
+    bus = SystemBus()
+    bus.add_match_string(
+        "type='signal',interface='org.freedesktop.NetworkManager',member='StateChanged'")
+    bus.add_message_filter(filter_cb)
+    try:
+        GLib.MainLoop().run()
+    except KeyboardInterrupt:
+        sys.stdout.write("\nSIGINT received. Exiting...\n")
+        sys.stdout.flush()
+
+
+if __name__ == "__main__":
+    main()

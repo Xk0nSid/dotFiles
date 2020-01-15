@@ -20,7 +20,59 @@ function workon() {
     cd "$HOME/workspace/python/$dir" || return
 }
 
-function cdwork() {
+function elmswork() {
     cd workspace/python/collegedekho/elms/enterpriselms
     . ../../clients-setup/venv/bin/activate
+}
+
+function cdwork() {
+    cd workspace/python/collegedekho/collegedekho
+    . ~/workspace/python/collegedekho/envcd/bin/activate
+}
+
+function cdinfra() {
+    case $1 in
+        "start")
+            echo -n "starting mysql..."
+            sudo systemctl start mariadb.service
+            echo "done"
+            echo -n "starting redis..."
+            sudo systemctl start redis.service
+            echo "done"
+            echo -n "starting docker..."
+            sudo systemctl start docker.service
+            echo "done"
+            echo -n "starting elasticsearch..."
+            sudo docker start escd
+            echo "done"
+            ;;
+        "stop")
+            echo -n "stoping mysql..."
+            sudo systemctl stop mariadb.service
+            echo "done"
+            echo -n "stoping redis..."
+            sudo systemctl stop redis.service
+            echo "done"
+            echo -n "stoping elasticsearch..."
+            sudo docker stop escd
+            echo "done"
+            echo -n "stoping docker..."
+            sudo systemctl stop docker.service
+            echo "done"
+            ;;
+        "status")
+            echo -n "checking mysql..."
+            sudo systemctl status mariadb.service
+            echo "done"
+            echo -n "checking redis..."
+            sudo systemctl status redis.service
+            echo "done"
+            echo -n "checking elasticsearch..."
+            sudo docker status escd
+            echo "done"
+            echo -n "checking docker..."
+            sudo systemctl status docker.service
+            echo "done"
+            ;;
+    esac
 }

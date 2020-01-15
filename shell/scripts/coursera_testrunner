@@ -1,0 +1,67 @@
+#!/usr/bin/env python3
+
+import sys
+from pathlib import Path
+from subprocess import Popen, PIPE
+
+
+class Color:
+    RESET = "\033[1;0;40m"
+    ERROR = "\033[1;31;40m"
+    SUCCESS = "\033[1;32;40m"
+    INFO = "\033[1;36;40m"
+
+
+class TestRunner:
+    executable: str
+    test_dir: Path
+
+    def __init__(self, executable: str, tests_dir: str):
+        self.executable = executable
+        self.test_dir = Path(tests_dir).glob("*")
+
+    def run(self):
+        total = 0
+        passed = 0
+        for filename in self.test_dir:
+            if str(filename)[-2:] == ".a":
+                continue
+            total += 1
+            if self._exec_file(str(filename)):
+                passed += 1
+        if total == passed:
+            color = Color.SUCCESS
+        else:
+            color = Color.ERROR
+        sys.stdout.write(f"{color}{passed} out of {total} tests passed{Color.RESET}\n")
+        sys.stdout.flush()
+
+    def _exec_file(self, filename) -> bool:
+        sys.stdout.write(f"{Color.INFO}Test {filename}{Color.RESET}\t")
+        sys.stdout.flush()
+        # Do work here
+        process = Popen([self.executable], stdin=PIPE, stdout=PIPE)
+        process.stdin.write(bytes(open(filename).read(), encoding='utf-8'))
+        cmd_output = process.communicate()[0].decode('utf-8').strip()
+        expected_output = open(filename+".a").read().strip()
+        if cmd_output == expected_output:
+            sys.stdout.write(f"{Color.SUCCESS}{Color.RESET}\n")
+            sys.stdout.flush()
+            return True
+        else:
+            sys.stdout.write(f"{Color.ERROR}Expected: {expected_output} and got {cmd_output}{Color.RESET}\n")
+            sys.stdout.flush()
+            return False
+
+
+def main():
+    if len(sys.argv) < 2:
+        print(f"{Color.ERROR}Usage: coursera_testrunner <executable> <tests_directory>{Color.RESET}")
+        sys.exit(1)
+
+    runner: TestRunner = TestRunner(sys.argv[1], sys.argv[2])
+    runner.run()
+
+
+if __name__ == "__main__":
+    main()

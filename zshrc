@@ -104,3 +104,5 @@ compinit
 
 # Enable nord dir colors
 test -r "~/.dir_colors" && eval $(dircolors ~/.dir_colors)
+
+source /home/siddharth/.config/broot/launcher/bash/br

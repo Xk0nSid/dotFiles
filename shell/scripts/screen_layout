@@ -20,7 +20,7 @@ case "$1" in
     echo -e $options
     ;;
 "select")
-    option=$(echo -e $options | rofi -theme sidetab -dmenu -p "Select Screen Layout")
+    option=$(echo -e $options | rofi -theme $HOME/.config/rofi/themes/sidetab -dmenu -p "Select Screen Layout")
     layout_select $option
     ;;
 *)
