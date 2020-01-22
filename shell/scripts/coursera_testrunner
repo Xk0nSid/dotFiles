@@ -3,6 +3,7 @@
 import sys
 from pathlib import Path
 from subprocess import Popen, PIPE
+from timeit import default_timer as timer
 
 
 class Color:
@@ -18,7 +19,7 @@ class TestRunner:
 
     def __init__(self, executable: str, tests_dir: str):
         self.executable = executable
-        self.test_dir = Path(tests_dir).glob("*")
+        self.test_dir = sorted(list(Path(tests_dir).glob("*")))
 
     def run(self):
         total = 0
@@ -40,16 +41,22 @@ class TestRunner:
         sys.stdout.write(f"{Color.INFO}Test {filename}{Color.RESET}\t")
         sys.stdout.flush()
         # Do work here
+        start = timer()
         process = Popen([self.executable], stdin=PIPE, stdout=PIPE)
-        process.stdin.write(bytes(open(filename).read(), encoding='utf-8'))
-        cmd_output = process.communicate()[0].decode('utf-8').strip()
-        expected_output = open(filename+".a").read().strip()
+        process.stdin.write(bytes(open(filename).read(), 'utf-8'))
+        cmd_output, errors = process.communicate()
+        time_taken = round(timer() - start, 4)
+        expected_output = bytes(open(filename+".a").read(), 'utf-8')
         if cmd_output == expected_output:
-            sys.stdout.write(f"{Color.SUCCESS}{Color.RESET}\n")
+            sys.stdout.write(f"{Color.SUCCESS}{Color.RESET} Time Taken: {time_taken}s\n")
             sys.stdout.flush()
             return True
         else:
-            sys.stdout.write(f"{Color.ERROR}Expected: {expected_output} and got {cmd_output}{Color.RESET}\n")
+            sys.stdout.write(f"{Color.ERROR}FAILED{Color.RESET}\n")
+            if errors:
+                sys.stdout.write(f"\tExpected:\n{expected_output.decode('utf-8')}\n\tGot:\n{errors.decode('utf-8')}{Color.RESET}\n")
+            else:
+                sys.stdout.write(f"\tExpected:\n{expected_output.decode('utf-8')}\n\tGot:\n{cmd_output.decode('utf-8')}{Color.RESET}\n")
             sys.stdout.flush()
             return False
 
